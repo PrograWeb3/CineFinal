@@ -1,0 +1,127 @@
+﻿@model Ensayo.Models.ModelView
+
+
+
+
+@{
+    ViewBag.Title = "ConfirmarReserva";
+}
+
+<div class="container">
+    <div class="row">
+        <div id="contenedorReserva">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contenido-Principal">
+                <div class="titulo">
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
+                        <div class="thumbnail ">
+                            <img src="..@Model.Carteleras.Peliculas.Imagen" alt="renders" />
+                        </div>
+                    </div>
+
+                    <div id="info_pelicula_seleccionada" class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+
+                        <div id="titulo_pelicula">
+                            @Model.Carteleras.Peliculas.Nombre
+                        </div>
+
+                        <p class="tit">General: </p>
+
+                        <div id="descripcion">
+                            <p>
+                                @Model.Carteleras.Peliculas.Descripcion
+                            </p>
+                        </div>
+
+                        <p class="tit">Género:<span class="titNombre"> @Model.Carteleras.Peliculas.Generos.Nombre</span></p>
+                        <p class="tit">Duración: <span class="titNombre">@Model.Carteleras.Peliculas.Duracion Minutos</span></p>
+                        <p class="tit">Categoría:<span class="titNombre"> @Model.Carteleras.Peliculas.Calificaciones.Nombre</span></p>
+                        <p class="tit">Precio:<span class="titNombre"> @Model.Carteleras.Sedes.PrecioGeneral</span></p>
+
+
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="titulo hidden-xs">
+                    <div id="reseña">
+
+                        <h4>Información al cliente</h4>
+                        <p><span class="glyphicon glyphicon-info-sign"> </span> La reserva estará vigente hasta 1 hr antes de la función elegida y deberá ser confirmada en el cine seleccionado.</p>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Formulario de reservas-->
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div id="formReserva">
+
+
+            <form class="form-horizontal" method="post" action="ConfirmarReserva2">
+
+
+
+                <!--Campo oculto input pelicula-->
+                @Html.TextBoxFor(m => m.Reservas.IdVersion, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.Reservas.IdPelicula, new { @class = "hidden" });
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Reservas.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.Reservas.Email, new { @class = "form-control", placeholder = "Jhon@example.com" })
+                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+                <!--Tipo de documento - SelecList-->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Reservas.IdTipoDocumento, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+
+                        @Html.DropDownListFor(m => m.Reservas.IdTipoDocumento, new SelectList(@ViewBag.tipoDNI, "IdTipoDocumento", "Descripcion"), "Seleccionar tipo de documento", new { @class = "form-control" })
+
+
+                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+                <!--Numero de documento - Verificar en Bd-->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Reservas.NumeroDocumento, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.Reservas.NumeroDocumento, new { @class = "form-control", placeholder = "N° DNI" })
+                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+                <!--Canidad de entradas-->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Reservas.CantidadEntradas, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.Reservas.CantidadEntradas, new { @class = "form-control", placeholder = "Cantidad entradas" })
+                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+
+
+
+
+                <input type="submit" value="RESERVAR" id="btn_reservar" />
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+

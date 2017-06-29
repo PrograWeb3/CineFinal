@@ -1,0 +1,70 @@
+﻿@model Ensayo.Peliculas
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	<div class="row" id="pelicula_seleccionada">
+		<div class="col-md-offset-1 col-lg-offset-1 col-md-4 col-lg-4" id="portada_pelicula_seleccionada">
+			<img src="images/peliculas/p4.jpg" alt="Portada película"/>
+		</div>
+		<div class="col-md-4 col-lg-4" id="info_pelicula_seleccionada">
+			<div id="titulo_pelicula">
+				@Model.Nombre
+			</div>
+			<p><strong>Género:</strong> @Model.IdGenero</p>
+			<p><strong>Duración:</strong> @Model.Duracion</p>
+			<p><strong>Categoría:</strong> @Model.IdCalificacion</p>
+			<button id="btn_ir_a_reserva">Reservar entrada</button>
+		</div>			
+	</div>
+	<div id="reseña">
+		<h4>Reseña</h4>
+		@Model.Descripcion
+	</div>
+	<div id="reserva">
+		<h1>Reserva online</h1>
+
+		<form>
+			<div class="form-group">
+				<label for="sede">Sede</label>
+				<select name="sede" class="form-control">
+					<option>Sede palermo</option>
+					<option>Sede abasto</option>
+					<option>Sede san justo</option>
+				</select>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-6">
+					<div class="form-group">				
+						<label for="dia">Día</label>
+						<select name="dia" class="form-control">
+							<option>17 de noviembre</option>
+							<option>25 de diciembre</option>
+							<option>1 de marzo</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-2">
+					<div class="form-group">
+						<label for="horario">Horario</label>
+						<select name="horario" class="form-control">
+							<option>17:00</option>
+							<option>21:00</option>
+							<option>22:30</option>
+						</select>
+					</div>
+				</div>
+			</div>			
+			<div class="form-group">
+				<label for="subtitulo">Subtitulo</label>
+				<select name="subtitulo" class="form-control">
+					<option>Doblada al castellano</option>
+					<option>Subtitulada</option>						
+				</select>
+			</div>
+			<input type="submit" value="RESERVAR" id="btn_reservar"/>
+		</form>
+	</div>
+</div>
+

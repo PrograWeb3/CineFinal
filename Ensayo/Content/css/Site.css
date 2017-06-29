@@ -1,0 +1,273 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-image: url("../Imagenes/fondoContenedor.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position-y:100px;
+    background-color:black;
+    
+   
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+/* Estilos para el sitio */
+
+
+#buscador{
+    margin-top:40px;
+    margin-right:40px;
+}
+
+
+#cabecera{
+    background-color: #191919;
+   /* background-image: url("../img/fondoBanner.jpg")*/
+
+}
+
+.navbar-inverse{
+    background-color: #222222;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color: white;
+}
+
+#logo{
+    height:60px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.barraSuperior{
+    border:0px solid ;
+    border-radius:0px;
+    /*box-shadow: 0px 10px 20px gray;*/
+}
+
+/*Slider*/
+
+#myCarousel{
+    margin-top:-10px;
+}
+
+.adaptar{
+	width: 100%;
+    max-height: 400px;
+}
+
+
+#banner1{
+    
+    background-color:black;
+    height:20px
+
+}
+
+/*Contenedor General*/
+
+
+
+#contenedorGeneral{
+    background-color:white;
+    min-height:550px;
+    margin-top: -40px;
+    padding-top:30px;
+    
+}
+
+#contenedorGeneral a{
+   
+    color:black;
+}
+
+
+
+/*Contenedor-Galeria de Imagenes*/
+
+
+#ImagenesCartelera .row{
+    padding-bottom:30px;
+}
+.genero, .clasificacion{
+    margin-top:-9px;
+    color:#7d7d7d;
+}
+
+.titulos{
+    margin-top:30px;
+    padding-bottom:15px;
+
+}
+
+
+
+/*Contenedor derecho - barra de menus*/
+
+#barraDerecha a{
+    text-decoration:none;
+}
+.table tfoot > tr > td
+{
+    background-color:red;
+}
+
+.table tbody > tr > td:hover{
+    background-color: #dddddd;
+    transition : all 0.2s ease;
+    
+}
+
+#promociones{
+    margin-top:25px;
+}
+
+.imgPromo{
+   margin-bottom:10px;
+}
+/*Pie de pagina*/
+
+#pieBanner{
+    background-color:#282828;
+    height:10px;
+    margin-top:50px;
+}
+
+#pie{
+    
+    padding-top:10px;
+    padding-bottom:50px;
+    background-color:#191919;
+    color:white;
+}
+
+
+#pie a{
+    color: white;
+}
+
+
+/*Reserva de entradas*/
+#contenedorReserva{
+    margin:20px;
+}
+
+#btn_reservar
+{
+    margin-left:180px;
+	background-color: #ff8c1a;
+	border: 2px dashed #fff;
+	color: #fff;
+	height: 55px;
+	width: 150px;	
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 22px;
+}
+
+#reseña
+{
+	background-color: #232323;
+	color: #ccc;
+	padding: 5px 10px 30px 15px;
+	margin-top: 20px;
+}
+
+#reserva
+{
+    border:1px solid #ddd;
+	margin-top: 10px;
+    
+}
+
+#reserva form{
+    margin-top:40px;
+    margin-left:30px;
+}
+#reserva > form > .form-group
+{
+	margin-top: 20px;
+    
+}
+#reserva > form  label
+{
+	font-size: 18px;
+}
+
+#info_pelicula_seleccionada
+{	
+        font-family: 'Lato';
+	color: black;
+	font-size: 14px;
+	height: auto;
+	text-align: left;
+	padding: 0px 50px;
+}
+
+.tit{
+    
+    font-weight: 400;
+    font-size: 16px;
+    padding-bottom: 5px;
+    color:black;
+}
+
+.titNombre{
+    
+	color: #666666;
+}
+
+.ImagenDescrpcion{
+
+}
+#titulo_pelicula
+{
+	font-size: 40px;
+    color: #c50505;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    
+    font-weight: 700;
+}
+#precio
+{
+	color: gold;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#descripcion{
+        font-family: 'Lato';
+    font-size: 16px;
+    line-height: 26px;
+    color: #666666;
+    font-weight: normal;
+}
+
+
+
+#formReserva {
+    border:1px solid #dddddd;
+    margin-top:5px;
+    margin-bottom:20px;
+}
+
+#formReserva form {
+    margin-top:40px;
+    margin-left:20px;
+}
+

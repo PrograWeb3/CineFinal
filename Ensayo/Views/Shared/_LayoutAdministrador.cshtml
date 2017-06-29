@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    	<script src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    
+    @Styles.Render("~/Content/css/bootstrap-3.3.6-dist/css/bootstrap.min.css")
+    @Scripts.Render("~/Content/css/bootstrap-3.3.6-dist/js/bootstrap.min.js")
+    @Styles.Render("~/Content/css/Administracion/SiteAdministrador.css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+
+</head>
+<body>
+    <div id="cabecera">
+        <div class="row">
+            <div id="logo">
+                <a href="#"><img src="../../Content/Imagenes/logo.png" alt="Home" id="logoAdmmin"></a>
+            </div>
+            <div id="usuarioAdmin">
+                <a href="#">Cristian Cordero </a>
+                <a href="#">Cerrar sesion</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar-default navbar-side barraMenuIzquierdo" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>@Html.ActionLink("Inicio", "Inicio", "Administracion", new { @class = "active-menu" })</li>
+                <li>@Html.ActionLink("Gestión de Peliculas", "Peliculas", "Administracion" )</li>
+                <li>@Html.ActionLink("Gestión de Carteleras", "Carteleras", "Administracion")</li>
+                <li>@Html.ActionLink("Gestión de Sedes", "Sedes", "Administracion")</li>
+                <li>@Html.ActionLink("Gestión de Reservas", "Reservas", "Administracion")</li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <div id="wrapper">
+        <div id="page-wrapper">
+
+            <div id="page-inner">
+
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

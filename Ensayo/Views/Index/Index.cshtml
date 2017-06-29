@@ -1,0 +1,226 @@
+﻿@*@model IEnumerable<WebApplication4.Peliculas>*@
+
+@model List<Ensayo.Carteleras>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div id="myCarousel" class="carousel slide" data-interval="6000" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="~/Content/Imagenes/img3.jpg" alt="" class="adaptar">
+            <div class="carousel-caption">
+                
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Content/Imagenes/img1.jpg" alt="" class="adaptar">
+            <div class="carousel-caption">
+                
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Content/Imagenes/img3.jpg" alt="" class="adaptar">
+            <div class="carousel-caption">
+                
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="~/Content/Imagenes/img1.jpg" alt="" class="adaptar">
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+
+    
+
+</div>
+
+<div id="banner1">
+
+</div>
+    
+
+
+@*<div id="contenedor galria de imagenes">*@
+    <div class="container" id="ImagenesCartelera" >
+        <div class="row">
+            <div class="col-lg-9 col-md-10 col-sm-12 col-xs-12">
+                
+                <div class="titulos">
+                    <h3 class="title">Peliculas en Cartelera</h3>
+                </div>
+
+              
+             
+
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="productos">
+                            @{
+
+                                foreach (var item in Model)
+                                {
+
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 galeria">
+                                        <div class="thumbnail ">
+                                            <img src="../@item.Peliculas.Imagen" alt="renders" id="imgGaleria" />
+                                            <div class="caption">
+                                                <a href="../Peliculas/Reserva?IdPelicula=@item.IdPelicula" class="title"><h4>@item.Peliculas.Nombre</h4></a>
+                                                @*<td><a href="editarSedes?id=@item.IdSede" class="btn btn-link">Editar</a></td>*@
+                                                <p class="genero">@item.Versiones.Nombre</p>
+
+                                                <p class="clasificacion">@item.Peliculas.Calificaciones.Nombre</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                
+                                }
+
+                            }
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="text-center">
+                        <ul class="pagination">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            <!-- Contenedor barra derecha-->
+            <div class="col-lg-3 col-md-10 col-sm-12 col-xs-12">
+                <div class="titulos">
+                    <h3 class="title">Promociones</h3>
+
+                </div>
+                
+                <div id="barraDerecha">
+
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse">
+                                        <span class="glyphicon glyphicon-film">
+                                        </span> Peliculas
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <a href="#">Accion</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Comedia</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Ficcion</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Romance</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Ciencia ficcion</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Terror</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Musical</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">Melodrama</a>
+
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--Cierre de la barra de menu Peliculas-->
+                     
+                    <div id="promociones">
+                        
+                            
+                            <img class="imgPromo" src="../../Content/Imagenes/Promo3.jpg" alt="Promo" />
+                        
+                            
+                        
+                   
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br /><br />
+    </div>
+
+
+
+@*</div>*@
+
+
+
+
+
+    

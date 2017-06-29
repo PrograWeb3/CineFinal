@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Inicio"; 
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            Administración
+        </h1>
+    </div>
+</div>
+<!-- /. ROW  -->
+<div class="row">
+
+    <p id="textoBienvenida">Binvenidos al centro de administracion de "La voz del Cine", seleccion una opcion: </p>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <div class="panel panel-primary text-center panelOpcion">
+            <div class="panel-body">
+                <span class="glyphicon glyphicon-film icon"></span>
+                <h3>Gestión de Peliculas</h3>
+            </div>
+            <div class="panel-footer panelGray">
+                @Html.ActionLink("Seleccionar opcion", "Peliculas", "Administracion")
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <div class="panel panel-primary text-center panelOpcion">
+            <div class="panel-body">
+                <span class="glyphicon glyphicon-list-alt icon"></span>
+                <h3>Gestión de Carteleras </h3>
+            </div>
+            <div class="panel-footer panelGray">
+                @Html.ActionLink("Seleccionar opcion", "Carteleras", "Administracion")
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <div class="panel panel-primary text-center panelOpcion">
+            <div class="panel-body">
+                <span class="glyphicon glyphicon-list-alt icon"></span>
+                <h3>Gestión de Sedes </h3>
+            </div>
+            <div class="panel-footer panelGray">
+                @Html.ActionLink("Seleccionar opcion", "Sedes", "Administracion")
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <div class="panel panel-primary text-center panelOpcion">
+            <div class="panel-body">
+                <span class="glyphicon glyphicon-calendar icon"></span>
+                <h3>Gestión de Reservas </h3>
+            </div>
+            <div class="panel-footer panelGray">
+                <a href="#">Seleccionar opcion</a>
+            </div>
+        </div>
+    </div>
+</div>

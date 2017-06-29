@@ -1,0 +1,141 @@
+﻿@model List<Ensayo.Sedes>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+    ViewBag.Title = "Sedes";
+}
+
+
+<div class="row">
+    <div class="col-md-7">
+        <h1 class="page-header">
+            Gestión de Sedes
+        </h1>
+    </div>
+    <div class="col-md-1">
+        
+        <a type="button" class="btn btn-primary btnCrear" href="NuevaSedes">Crear</a>
+    </div>
+    <div class="col-md-3">
+        <form action="">
+            <div class="input-group " id="buscadorAdmin">
+                <input type="text" class="form-control buscador" placeholder="Buscar Sede...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default buscar-header " type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-1">
+        
+    </div>
+
+</div>
+
+<!-- /. ROW  -->
+<div class="col-md-11">
+    <div class="tabla">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Precio entrada general</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdSede</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Direccion</td>
+                        <td>@item.PrecioGeneral</td>
+                        @*<td><a href="#?idSede=@item.IdSede" class="btn btn-link" >Editar</a></td>*@
+                        <td>@Html.ActionLink("Editar sede", "EditarSede", "Administracion", new{Id = item.IdSede}, null)</td>
+                    </tr>
+                }
+
+                @*@for (int i = 0; i < 15; i++)
+                {
+
+
+                    <tr>
+                        <td>1 </td>
+                        <td>Hoyts Moron</td>
+                        <td>J. M. de Rosas 658 Plaza Oeste Shopping, 1708 Morón, Buenos Aires</td>
+                        <td>350,00</td>
+                        
+                        <td><a data-toggle="modal" data-target="#modalEditar" href="#">Editar</a></td>
+                    </tr>
+
+
+                }*@
+
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+    <div class="row">
+
+        <div id="paginador">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- Ventana modal para nueva sede -->
+<div id="modal_crear_sede" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">Nose que colocar</button>
+				<h4 class="modal-title">Nueva sede</h4>
+			</div>
+			<div class="modal-body">
+				<h2>Nueva sede</h2>
+				@using (Html.BeginForm("NuevaSede", "Administracion", FormMethod.Post, new{enctype = "multipart/form-data"}))
+				{
+					// El codigo es autoincremental
+					@Html.Label("Nombre")
+					@Html.TextBox("Nombre", null, new{@class = "form-control"})
+					
+					@Html.Label("Dirección", new{@for = "Direccion"})
+					@Html.TextBox("Direccion", null, new{@class = "form-control"})
+					
+					@Html.Label("Precio", new{@for = "PrecioGeneral"})
+                    @Html.TextBox("PrecioGeneral", null, new { @class = "form-control" })
+
+					// La fecha de cargar se almacena a nivel de aplicación.
+					
+					<input type="submit" value="Crear" />
+				}							
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model Ensayo.Peliculas
+
+@{
+    ViewBag.Title = "EditarPelicula";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>EditarPelicula</h2>
+
+<h1>@Model.Nombre</h1>
+@using(Html.BeginForm("EditarPelicula", "Administracion", FormMethod.Post, new{enctype = "multipart/form-data"}))
+{	
+	<input type="hidden" value="@Model.IdPelicula" name="IdPelicula"/>
+    
+	@Html.Label("Nombre")
+	@Html.TextBox("Nombre", null, new{@class = "form-control"})
+					
+	@Html.Label("Descripción", new{@for = "Descripcion"})
+	@Html.TextArea("Descripcion", null, new{@class = "form-control"})
+					
+	@Html.Label("Clasificación", new{@for = "IdCalificacion"})
+    @Html.DropDownList("IdCalificacion", new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })
+					
+	@Html.Label("Género", new{@for = "IdGenero"})
+    @Html.DropDownList("IdGenero", new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
+					
+	@Html.Label("Duración", new{@for = "Duracion"})
+	@Html.TextBox("Duracion", null, new{@class = "form-control"})
+					
+	// La fecha de cargar se almacena a nivel de aplicación.
+					
+	<input type="file" name="portada_pelicula"/>
+	<input type="submit" value="Guardar cambios" />
+}

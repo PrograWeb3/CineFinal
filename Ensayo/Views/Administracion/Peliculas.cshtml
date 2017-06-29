@@ -1,0 +1,76 @@
+﻿@model List<Ensayo.Peliculas>
+
+@{
+	Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+    ViewBag.Title = "Peliculas";
+}
+<div class="row">
+    <div class="col-md-7">
+        <h1 class="page-header">
+            Gestión de Peliculas
+        </h1>
+    </div>
+
+    <div class="col-md-1">
+        <a type="button" class="btn btn-primary btnCrear" href="NuevaPelicula">Crear</a>
+    </div>
+
+    <div class="col-md-3">
+        <form action="">
+            <div class="input-group " id="buscadorAdmin">
+                <input type="text" class="form-control buscador" placeholder="Buscar Pelicula...">
+                <span class="input-group-btn">
+					<button class="btn btn-default buscar-header " type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /. ROW  -->
+<div class="col-md-11">
+    <div class="tabla">
+        <table class="table table-bordered table-hover">            
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Género</th>
+                    <th>Descripción</th>
+                    <th>Duración</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pelicula in Model)
+                {
+					<tr>
+						<td>@pelicula.IdPelicula</td>
+						<td>@pelicula.Nombre</td>
+						<td>@pelicula.Generos.Nombre</td>
+						<td>@pelicula.Descripcion</td>						
+						<td>@pelicula.Duracion</td>
+						<td>@Html.ActionLink("Editar película", "EditarPelicula", "Administracion", new{Id = pelicula.IdPelicula}, null)</td>
+					</tr>
+                }
+            </tbody>
+        </table>
+    </div> 
+    <div class="row">
+        <div id="paginador">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>                
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+    @ViewBag.numero
+    @ViewBag.duracion
+</div>

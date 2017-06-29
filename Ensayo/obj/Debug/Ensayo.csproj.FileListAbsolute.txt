@@ -1,0 +1,124 @@
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\Ensayo.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\Ensayo.pdb
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\Antlr3.Runtime.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\EntityFramework.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\Microsoft.Web.Infrastructure.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\Newtonsoft.Json.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Net.Http.Formatting.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Http.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Http.WebHost.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Mvc.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Optimization.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Providers.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Razor.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.WebPages.Deployment.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.WebPages.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.WebPages.Razor.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\WebGrease.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\EntityFramework.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\Newtonsoft.Json.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Net.Http.Formatting.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Http.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Http.WebHost.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Mvc.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.Razor.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.WebPages.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.WebPages.Deployment.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\System.Web.WebPages.Razor.xml
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\EntityFramework.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Net.Http.Formatting.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.Http.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.Http.WebHost.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.Mvc.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.Optimization.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.Providers.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.Razor.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.WebPages.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.WebPages.Deployment.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\bin\es\System.Web.WebPages.Razor.resources.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\obj\Debug\Ensayo.csprojResolveAssemblyReference.cache
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\obj\Debug\Ensayo.dll
+c:\users\usuario\documents\visual studio 2012\Projects\Ensayo\Ensayo\obj\Debug\Ensayo.pdb
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\obj\Debug\Ensayo.csprojResolveAssemblyReference.cache
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\obj\Debug\Ensayo.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\obj\Debug\Ensayo.pdb
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Ensayo.dll.config
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Ensayo.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Ensayo.pdb
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Antlr3.Runtime.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\EntityFramework.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Newtonsoft.Json.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Net.Http.Formatting.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Http.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Http.WebHost.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Mvc.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Optimization.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Providers.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Razor.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.WebPages.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.WebPages.Razor.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\WebGrease.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\EntityFramework.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\Newtonsoft.Json.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Net.Http.Formatting.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Http.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Http.WebHost.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Mvc.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.Razor.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.WebPages.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\System.Web.WebPages.Razor.xml
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\EntityFramework.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Net.Http.Formatting.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.Http.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.Http.WebHost.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.Providers.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.Razor.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Jonathan\Desktop\Ensayo\Ensayo\bin\es\System.Web.WebPages.Razor.resources.dll
+G:\Ensayo\Ensayo\bin\Ensayo.dll
+G:\Ensayo\Ensayo\bin\Ensayo.pdb
+G:\Ensayo\Ensayo\bin\Antlr3.Runtime.dll
+G:\Ensayo\Ensayo\bin\EntityFramework.dll
+G:\Ensayo\Ensayo\bin\Microsoft.Web.Infrastructure.dll
+G:\Ensayo\Ensayo\bin\Newtonsoft.Json.dll
+G:\Ensayo\Ensayo\bin\System.Net.Http.Formatting.dll
+G:\Ensayo\Ensayo\bin\System.Web.Http.dll
+G:\Ensayo\Ensayo\bin\System.Web.Http.WebHost.dll
+G:\Ensayo\Ensayo\bin\System.Web.Mvc.dll
+G:\Ensayo\Ensayo\bin\System.Web.Optimization.dll
+G:\Ensayo\Ensayo\bin\System.Web.Providers.dll
+G:\Ensayo\Ensayo\bin\System.Web.Razor.dll
+G:\Ensayo\Ensayo\bin\System.Web.WebPages.Deployment.dll
+G:\Ensayo\Ensayo\bin\System.Web.WebPages.dll
+G:\Ensayo\Ensayo\bin\System.Web.WebPages.Razor.dll
+G:\Ensayo\Ensayo\bin\WebGrease.dll
+G:\Ensayo\Ensayo\bin\EntityFramework.xml
+G:\Ensayo\Ensayo\bin\Newtonsoft.Json.xml
+G:\Ensayo\Ensayo\bin\System.Net.Http.Formatting.xml
+G:\Ensayo\Ensayo\bin\System.Web.Http.xml
+G:\Ensayo\Ensayo\bin\System.Web.Http.WebHost.xml
+G:\Ensayo\Ensayo\bin\System.Web.Mvc.xml
+G:\Ensayo\Ensayo\bin\System.Web.Razor.xml
+G:\Ensayo\Ensayo\bin\System.Web.WebPages.xml
+G:\Ensayo\Ensayo\bin\System.Web.WebPages.Deployment.xml
+G:\Ensayo\Ensayo\bin\System.Web.WebPages.Razor.xml
+G:\Ensayo\Ensayo\bin\es\EntityFramework.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Net.Http.Formatting.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.Http.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.Http.WebHost.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.Mvc.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.Optimization.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.Providers.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.Razor.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.WebPages.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.WebPages.Deployment.resources.dll
+G:\Ensayo\Ensayo\bin\es\System.Web.WebPages.Razor.resources.dll
+G:\Ensayo\Ensayo\obj\Debug\Ensayo.csprojResolveAssemblyReference.cache
+G:\Ensayo\Ensayo\obj\Debug\Ensayo.dll
+G:\Ensayo\Ensayo\obj\Debug\Ensayo.pdb

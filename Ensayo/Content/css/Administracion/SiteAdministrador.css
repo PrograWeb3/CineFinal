@@ -1,0 +1,251 @@
+﻿
+
+
+#cabecera{
+    background-color: #191919;
+    
+    border: 0px ;
+   /* background-image: url("../img/fondoBanner.jpg")*/
+
+}
+
+.navbar-inverse{
+    background-color: #222222;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color: white;
+}
+
+#logoAdmmin{
+    height:60px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.barraSuperior{
+    border:0px solid ;
+    border-radius:0px;
+    /*box-shadow: 0px 10px 20px gray;*/
+}
+
+#usuarioAdmin{
+    float: right;
+    color:white;
+    margin-top:50px;
+    margin-right:40px;
+}
+
+#usuarioAdmin a {
+    color:white;
+    margin-left: 5px;
+}
+
+#logo{
+    float: left;
+    margin-bottom: 10px;
+}
+
+/*Estilos para la pagina home*/
+
+.sidebar-collapse > .nav > li > a{
+    padding: 15px 20px;
+}
+
+.sidebar-collapse > .nav > li > a:hover{
+    background-color: #225081;
+}
+
+.active-menu {
+    background-color: #225081;
+}
+
+
+#wrapper{
+    
+    height: 100%;
+    background:#191919;
+   
+    min-height: 1200px;
+    
+}
+
+
+.barraMenuIzquierdo{
+    background: #191919;
+   
+}
+
+.barraMenuIzquierdo a{
+    color:white;
+}
+
+
+
+#page-wrapper{
+   
+
+
+}
+
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:transparent;
+    padding:10px;
+    min-height:1200px;
+}
+
+
+
+
+
+
+#page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background:#E5EBF2;
+   
+}
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:transparent;
+    padding:10px;
+    min-height:1200px;
+}
+
+
+/*menu*/
+
+.active-menu {
+    background-color:#225081!important;
+}
+
+
+.nav-second-level li a {
+    padding-left: 37px;
+}
+
+.nav-third-level li a {
+    padding-left: 55px;
+}
+.sidebar-collapse , .sidebar-collapse .nav{
+    background:none;
+}
+.sidebar-collapse .nav {
+    padding:0;
+}
+.sidebar-collapse .nav > li > a {
+    color:#fff;
+    background:transparent;
+    text-shadow:none;
+    
+}
+
+.sidebar-collapse > .nav > li {
+    border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+}
+
+
+ 
+ @media(min-width:768px) {
+     #page-wrapper{
+               margin: 0 0 0 260px;
+        padding: 15px 30px;
+        min-height: 1200px;
+        
+    }
+    
+    
+    .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+    }
+
+
+   .navbar {
+ border-radius: 0px; 
+}
+   
+}
+ @media(max-width:480px) {
+.page-header small {
+display: block;
+padding-top: 14px;
+font-size: 19px;
+}
+}
+
+
+
+/*Contenedor home*/
+#textoBienvenida{
+    font-size: 16px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+
+.icon{
+    font-size: 45px;
+}
+
+.panelOpcion a{
+    list-style: none;
+    color:white;
+}
+
+.panelGray{
+    background-color: #424242;
+}
+
+
+.tabla{
+    background-color: white;
+    font-size: 15px;
+}
+
+thead{
+    background-color:#cacaca;
+    
+}
+
+.table-bordered > thead > tr > th{
+    margin-bottom:20px;
+}
+
+
+#buscadorAdmin{
+    margin-top:50px;
+    margin-right:15px;
+}
+
+#paginado{
+    margin-right:200px;
+}
+
+#paginador a{
+    color:black;
+}
+
+.pagination{
+    margin-left:10px;
+
+}
+
+.btnCrear{
+    margin-left:40px;
+    margin-top:50px;
+}
+
+
+#descripcion{
+    height:200px;
+}
+
+/*Sedes*/
+.form-registracion hr{
+    margin-top:50px;
+}

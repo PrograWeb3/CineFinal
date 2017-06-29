@@ -1,0 +1,53 @@
+body
+{
+	background-color: #0d0d0d;
+}
+#logo
+{
+	color: #fff;
+	font-size: 35px;
+	margin-left: 20px;
+}
+#barra_superior
+{
+	background-color: #111;
+	background: -webkit-linear-gradient(#000, #111);
+	background: -o-linear-gradient(#000, #111);
+	background: -moz-linear-gradient(#000, #111);	
+	background: linear-gradient(#000, #111);
+	height: 75px;
+	width: 100%;
+	padding: 14px 10px;
+}
+#menu_principal
+{
+	background-color: #1a1a1a;	
+	height: 55px;
+	width: 100%;
+	padding: 20px 0px;
+	text-align: center;
+}
+
+#menu_principal > ul > li
+{
+	display: inline;
+	padding: 10px 100px;
+}
+#menu_principal > ul > li:hover
+{
+	box-shadow: 0px 10px 17px -13px #fff;
+	transition: 0.3s box-shadow;
+}
+#menu_principal > ul > li > a
+{	
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+}
+footer
+{
+	border-top: 1px solid #1d1d1d;
+	background: linear-gradient(#0d0d0d, #1d1d1d);
+	height: 200px;
+	width: 100%;
+}

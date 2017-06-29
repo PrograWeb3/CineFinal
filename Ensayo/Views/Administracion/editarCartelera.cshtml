@@ -1,0 +1,164 @@
+﻿@model Ensayo.Carteleras
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+    ViewBag.Title = "editarCartelera";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header">Editar Cartelera</h2>
+    </div>
+</div>
+
+
+<div class="col-md-10">
+    <div class="tabla">
+
+        @using (Html.BeginForm("EditarCartelera", "Administracion", FormMethod.Post, new { @class= "form-horizontal" , @id= "form-registracion" }))
+        {
+            <!--Sedes-->
+            <input type="hidden" value="@Model.IdCartelera" name="IdCartelera"/>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Sedes, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(m => m.IdSede, new SelectList(@ViewBag.sedes, "IdSede", "Nombre"), "Selecciones Sede ", new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <!--Pelicula-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.Peliculas, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(m => m.IdPelicula, new SelectList(@ViewBag.peliculas, "IdPelicula", "Nombre"), "Selecciones Pelicula ", new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <!--Hora de inicio-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.HoraInicio, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.HoraInicio, new { @class = "form-control", placeholder = "Ingrese hora de incio" })
+                </div>
+            </div>
+
+            <!--Fecha de Inicio-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.FechaInicio, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.FechaInicio, new { @class = "form-control", placeholder = "dd-mm-aaaa" })
+                </div>
+            </div>
+
+            <!--Fecha de fin-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.FechaFin, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.FechaFin, new { @class = "form-control", placeholder = "dd-mm-aaaa" })
+                </div>
+            </div>
+
+            <!--Numero de sala-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.NumeroSala, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.NumeroSala, new { @class = "form-control", placeholder = "Ingrese numero sala" })
+                </div>
+            </div>
+
+            <!--Version de pelicula-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.Versiones, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(m => m.IdVersion, new SelectList(@ViewBag.Versiones, "IdVersion", "Nombre"), "Selecciones version de pelicula", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <!--Dias de la semana que se proyectara la cartelera-->
+            <div class="form-group">
+
+                <div class="col-lg-offset-2 col-lg-10">
+
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Lunes)
+                        @Html.LabelFor(m => m.Lunes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Martes)
+                        @Html.LabelFor(m => m.Martes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Miercoles)
+                        @Html.LabelFor(m => m.Miercoles)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Jueves)
+                        @Html.LabelFor(m => m.Jueves)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Viernes)
+                        @Html.LabelFor(m => m.Viernes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Sabado)
+                        @Html.LabelFor(m => m.Sabado)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Domingo)
+                        @Html.LabelFor(m => m.Domingo)
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-5">
+                    <input type="submit" class="btn btn-primary" value="Registrar">
+                </div>
+            </div>
+
+        }
+
+
+        
+
+    </div>
+</div>
+
+
+

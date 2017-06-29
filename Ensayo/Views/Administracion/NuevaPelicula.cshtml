@@ -1,0 +1,50 @@
+﻿@model Ensayo.Peliculas
+
+@{
+    ViewBag.Title = "NuevaPelicula";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            Nueva Pelicula
+        </h1>
+    </div>
+</div>
+
+<div class="col-md-10">
+    <div class="tabla">
+
+        @using (Html.BeginForm("NuevaPelicula", "Administracion", FormMethod.Post, new{enctype = "multipart/form-data"}))
+		{
+            @Html.ValidationSummary(true, " ", new { @class = "text-danger" })
+			// El codigo es autoincremental
+			@Html.Label("Nombre")
+			@Html.TextBox("Nombre", null, new{@class = "form-control"})
+            @Html.ValidationMessage("Nombre", "", new { @class = "text-danger" })
+					
+			@Html.Label("Descripción", new{@for = "Descripcion"})
+			@Html.TextArea("Descripcion", null, new{@class = "form-control"})
+            @Html.ValidationMessage("Descripcion", "", new { @class = "text-danger" })
+					
+			@Html.Label("Clasificación", new{@for = "IdCalificacion"})
+            @Html.DropDownList("IdCalificacion", new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })
+            @Html.ValidationMessage("IdCalificacion", "", new { @class = "text-danger" })
+            					
+			@Html.Label("Género", new{@for = "IdGenero"})
+            @Html.DropDownList("IdGenero", new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
+            @Html.ValidationMessage("IdGenero", "", new { @class = "text-danger" })
+					
+			@Html.Label("Duración", new{@for = "Duracion"})
+			@Html.TextBox("Duracion", null, new{@class = "form-control"})
+            @Html.ValidationMessage("Duracion", "", new { @class = "text-danger" })
+					
+			// La fecha de cargar se almacena a nivel de aplicación.
+					
+			<input type="file" name="portada_pelicula"/>
+			<input type="submit" value="Crear" />
+		}				
+
+    </div>
+</div>

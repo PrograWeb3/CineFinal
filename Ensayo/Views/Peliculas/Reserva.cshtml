@@ -1,0 +1,160 @@
+﻿@model Ensayo.Reservas
+
+@{
+    ViewBag.Title = "Reserva";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        @*<div id="contenedorReserva">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contenido-Principal">
+                    <div class="titulo">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
+                            <div class="thumbnail ">
+                                <img src="..@Model.Peliculas.Imagen" alt="renders" />
+                            </div>
+                        </div>
+
+                        <div id="info_pelicula_seleccionada" class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+
+                            <div id="titulo_pelicula">
+                                @Model.Peliculas.Nombre
+                            </div>
+
+                            <p class="tit">General: </p>
+
+                            <div id="descripcion">
+                                <p>
+                                    @Model.Peliculas.Descripcion
+                                </p>
+                            </div>
+
+                            <p class="tit">Género:<span class="titNombre"> @Model.Peliculas.Generos.Nombre</span></p>
+                            <p class="tit">Duración: <span class="titNombre">@Model.Peliculas.Duracion Minutos</span></p>
+                            <p class="tit">Categoría:<span class="titNombre"> @Model.Peliculas.Calificaciones.Nombre</span></p>
+
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="titulo hidden-xs">
+                        <div id="reseña">
+
+                            <h3>Reserva Online</h3>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>*@
+    </div>
+    <!--Formulario de reservas-->
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="titulo hidden-xs">
+            <div id="reseña">
+
+                <h3>Reserva Online</h3>
+
+            </div>
+        </div>
+        <div id="formReserva">
+
+
+            <form class="form-horizontal" method="post" action="ConfirmarReserva">
+
+                <!--No cambiar los Id de los input, se los utiliza con ajax-->
+                <!--Campo oculto input pelicula-->
+                @Html.TextBoxFor(m => m.IdPelicula, new { @class = "hidden" });
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdVersion, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.DropDownListFor(m => m.IdVersion, new SelectList(@ViewBag.Versiones, "IdVersion", "Nombre"), "Selecciones Version ", new { @class = "form-control" })
+                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdSede, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.DropDownListFor(m => m.IdSede, new SelectList(""), "Selecciones Sede ", new { @class = "form-control" })
+                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="genero">Dia:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control">
+                            <option value="" disabled selected>Seleccione Opcion </option>
+                            <option value="1">Lunes 28-10-2017</option>
+
+                        </select>
+                    </div>
+
+
+                    <label class="col-md-1 control-label" for="genero">Hora:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control">
+                            <option value="" disabled selected>Seleccione Opcion </option>
+                            <option value="1">10:00</option>
+
+                        </select>
+                    </div>
+                </div>
+                <input type="submit" value="RESERVAR" id="btn_reservar" />
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        //$(document).ready(function () {
+        //    $.get("/api/movies", function (data) {
+        //        console.log(data);
+        //    });
+        //});
+
+        
+        $(document).ready(function () {
+
+            //Obtiene las sedes segun la cartelera selccionada
+            $("IdVersion").each(function () {
+                $(this).val("");
+            });
+
+            $("#IdVersion").change(function () {
+
+
+                $.get("/Peliculas/GetSedesList", { IdVersion: $("#IdVersion").val(), IdPelicula: $("#IdPelicula").val() }, function (data) {
+
+
+                    $("#IdSede").empty();
+
+                    $.each(data, function (index, row) {
+
+                        if (jQuery.isEmptyObject(data) ) {
+                            alert("no hay mensajes");
+                        } else {
+
+
+                        $("#IdSede").append("<option value='" + row.IdSede + "'>" + row.Nombre+ "</option>")
+                        }
+                    });
+                });
+            })
+        });
+    </script>
+}
+
+
