@@ -41,18 +41,7 @@ namespace Ensayo.Models.Servicios
             }            
             db.SaveChanges();            
         }
-        public static void EditarPelicula(Peliculas pd)
-        {
-            CineContext db = new CineContext();
-            Peliculas p = db.Peliculas.ToList().Find(pelicula => pelicula.IdPelicula == pd.IdPelicula);
-            p.Nombre = pd.Nombre;
-            p.Descripcion = pd.Descripcion;
-            p.Duracion = pd.Duracion;
-            p.IdGenero = pd.IdGenero;
-            p.IdCalificacion = pd.IdCalificacion;
-            p.Imagen = pd.Imagen;
-            db.SaveChanges();
-        }
+        
         public static Peliculas MostrarPeliculaSeleccionada(Int32 codigo)
         {
             CineContext db = new CineContext();

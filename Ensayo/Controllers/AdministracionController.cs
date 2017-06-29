@@ -45,7 +45,7 @@ namespace Ensayo.Controllers
             return View(p);
         }
         [HttpPost]
-        public ActionResult EditarPelicula(Peliculas pd)
+        public ActionResult EditarPelicula(Peliculas pd, HttpPostedFileBase portada_pelicula)
         {
             ServicioPeliculas.EditarPelicula(pd);
             ViewBag.numero = pd.Nombre;
