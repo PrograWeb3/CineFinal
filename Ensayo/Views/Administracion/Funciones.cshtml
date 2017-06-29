@@ -31,50 +31,56 @@
 </div>
 
 <div class="col-md-11">
+    <select name="numero_sala" id="numero_sala">
+        <option value="1">1</option>
+        <option value="1">2</option>
+        <option value="1">3</option>
+        <option value="1">4</option>
+    </select>
     <div class="tabla">
     @{
         int i = 1;
-         foreach (var item in Model)
+        foreach (var item in Model)
         {
 	                                       
-		        int hora_real = (item.HoraInicio) / 3600;
-		        int minutos_real = (item.HoraInicio % 3600) / 60;
+		    int hora_real = (item.HoraInicio) / 3600;
+		    int minutos_real = (item.HoraInicio % 3600) / 60;
 
-		        string minutos_real_texto; // Para añadir un cero a la izquierda si fuera necesario.
-		        string hora_formato_original;
+		    string minutos_real_texto; // Para añadir un cero a la izquierda si fuera necesario.
+		    string hora_formato_original;
 
-		        if (minutos_real < 10)
-		        {
-			        minutos_real_texto = minutos_real.ToString();
-			        minutos_real_texto = "0" + minutos_real;
-			        hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real_texto);
-		        }
-		        else
-		        {
-			        hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real);
-		        }
+		    if (minutos_real < 10)
+		    {
+			    minutos_real_texto = minutos_real.ToString();
+			    minutos_real_texto = "0" + minutos_real;
+			    hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real_texto);
+		    }
+		    else
+		    {
+			    hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real);
+		    }
 
-		        //Calculo el final de la funcion mediante la duracion de la pelicula.
-		        int duracion_en_segundos = ((item.Peliculas.Duracion) * 60) + item.HoraInicio;
-		        string fin_funcion;
-		        hora_real = duracion_en_segundos / 3600;
-		        minutos_real = (duracion_en_segundos % 3600) / 60;	
+		    //Calculo el final de la funcion mediante la duracion de la pelicula.
+		    int duracion_en_segundos = ((item.Peliculas.Duracion) * 60) + item.HoraInicio;
+		    string fin_funcion;
+		    hora_real = duracion_en_segundos / 3600;
+		    minutos_real = (duracion_en_segundos % 3600) / 60;	
 
-		        if (minutos_real < 10)
-		        {
-			        minutos_real_texto = minutos_real.ToString();
-			        minutos_real_texto = "0" + minutos_real;
-			        fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real_texto);
-		        }
-		        else
-		        {
-			        fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);                                    
-		        }
-		        //Imprimo los resultados.
-		        <div>
-			        Función @i de @hora_formato_original a @fin_funcion. Sede; @item.Sedes.Nombre                    
-		        </div>	        
-                i++;                 
+		    if (minutos_real < 10)
+		    {
+			    minutos_real_texto = minutos_real.ToString();
+			    minutos_real_texto = "0" + minutos_real;
+			    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real_texto);
+		    }
+		    else
+		    {
+			    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);                                    
+		    }
+		    //Imprimo los resultados.
+		    <div>
+			    Función @i de @hora_formato_original a @fin_funcion. Sede; @item.Sedes.Nombre                    
+		    </div>	        
+            i++;                 
         }            
      }
     </div>

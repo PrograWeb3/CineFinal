@@ -44,10 +44,11 @@ namespace Ensayo.Controllers
             ViewBag.Generos = ServicioPeliculas.ObtenerGeneros();
             return View(p);
         }
+
         [HttpPost]
         public ActionResult EditarPelicula(Peliculas pd, HttpPostedFileBase portada_pelicula)
         {
-            ServicioPeliculas.EditarPelicula(pd);
+            ServicioPeliculas.EditarPelicula(pd, portada_pelicula);
             ViewBag.numero = pd.Nombre;
             ViewBag.duracion = pd.Duracion;
             return RedirectToAction("Peliculas");
@@ -171,9 +172,9 @@ namespace Ensayo.Controllers
             ServicioCarteleras.EliminarCartelera(Id);
             return RedirectToAction("Carteleras");
         }
-        public ActionResult Funciones()
+        public ActionResult Funciones(Int32 Id)
         {
-            List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras();
+            List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id);
             return View(carteleras);
         }
 

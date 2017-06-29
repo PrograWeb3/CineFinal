@@ -10,7 +10,14 @@ namespace Ensayo.Models.Servicios
         public static List<Carteleras> ListarCarteleras()
         {
             CineContext db = new CineContext();
-            List<Carteleras> carteleras = (from c in db.Carteleras select c).ToList();
+            List<Carteleras> carteleras = (from c in db.Carteleras select c).ToList();            
+            return carteleras;
+        }
+        //Sobrecarga para filtrar por salas
+        public static List<Carteleras> ListarCarteleras(Int32 Id)
+        {
+            CineContext db = new CineContext();
+            List<Carteleras> carteleras = (from c in db.Carteleras where c.NumeroSala == Id select c).ToList();
             return carteleras;
         }
         public static void CrearCartelera(Carteleras cartelera)
