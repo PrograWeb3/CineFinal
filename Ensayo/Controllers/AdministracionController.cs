@@ -174,10 +174,15 @@ namespace Ensayo.Controllers
         }
         public ActionResult Funciones(Int32 Id)
         {
-            List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id);
+            List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id); //Por defecto es la sala 1.
             return View(carteleras);
         }
-
+        public ActionResult FuncionesPorSala(Int32 Id)
+        {
+            List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id); //Filtra mediante ajax.
+            var car = carteleras[0];
+            return Json(car, JsonRequestBehavior.AllowGet);
+        }
     }
 }
 
