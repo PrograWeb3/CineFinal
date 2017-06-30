@@ -16,7 +16,7 @@ namespace Ensayo
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Index", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Administracion", action = "Inicio", id = UrlParameter.Optional }
             );
         }
     }

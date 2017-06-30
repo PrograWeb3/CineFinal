@@ -67,8 +67,9 @@ namespace Ensayo.Models.Servicios
             int hora_cartelera;
             foreach (var c in carteleras)
             {
-                hora_cartelera = ConversorDeHoras.HoraASegundos(c.HoraInicio);
-                var cartelera_conflictiva = (from x in db.Carteleras where hora_cartelera + 1800 >= segundostotales select x).Count();
+                // ERROR ESTA LLEGANDO YA EN SEGUNDOS... ENTONCES???
+                //hora_cartelera = ConversorDeHoras.HoraASegundos(c.HoraInicio);
+                var cartelera_conflictiva = (from x in db.Carteleras where x.HoraInicio + 1800 >= segundostotales select x).Count();
                 if (cartelera_conflictiva > 0)
                 {
                     conflicto_intervalo = 1;
