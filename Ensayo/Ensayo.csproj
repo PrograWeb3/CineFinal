@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Models\Carteleras.cs" />
     <Compile Include="Models\CartelerasMetadata.cs" />
+    <Compile Include="Models\ConversorDeHoras.cs" />
     <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\Peliculas.cs" />
     <Compile Include="Models\PeliculasMetadata.cs" />

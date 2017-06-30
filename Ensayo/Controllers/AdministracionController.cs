@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ensayo.Models.Servicios;
+using System.Web.Script.Serialization;
 
 namespace Ensayo.Controllers
 {
@@ -102,7 +103,7 @@ namespace Ensayo.Controllers
             //validar que no exista una cartelera con misma pelicula, sede y sala
             var CarteleraExistente = ServicioCarteleras.ValidarExistencia(cartelera);
             var FechaSolapada = ServicioCarteleras.ValidarSolapamientoFechas(cartelera.FechaInicio, cartelera.FechaFin);
-            //var Intervalo30 = ServicioCarteleras.ValidarIntervalo30(cartelera);
+            var Intervalo30 = ServicioCarteleras.ValidarIntervalo30(cartelera);
 
             if (ModelState.IsValid)
             {
@@ -114,10 +115,10 @@ namespace Ensayo.Controllers
                 {
                     ModelState.AddModelError("", "La fecha indicada no esta disponible");
                 }
-                /*if (Intervalo30 > 0)
+                if (Intervalo30 > 0)
                 {
                     ModelState.AddModelError("", "Debe haber un intervalo de 30 minutos entre cada función");
-                }*/
+                }
             }
             if (ModelState.IsValid)
             {
@@ -175,14 +176,16 @@ namespace Ensayo.Controllers
         public ActionResult Funciones(Int32 Id)
         {
             List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id); //Por defecto es la sala 1.
+            carteleras.OrderBy(x => x.HoraInicio);
             return View(carteleras);
         }
-        public ActionResult FuncionesPorSala(Int32 Id)
+        /*public string FuncionesPorSala(Int32 Id)
         {
             List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id); //Filtra mediante ajax.
-            var car = carteleras[0];
-            return Json(car, JsonRequestBehavior.AllowGet);
-        }
+            var JSON = new JavaScriptSerializer();
+            string objeto_json = JSON.Serialize(carteleras);
+            return objeto_json;
+        }*/
     }
 }
 

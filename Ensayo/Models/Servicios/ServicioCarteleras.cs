@@ -23,14 +23,7 @@ namespace Ensayo.Models.Servicios
         public static void CrearCartelera(Carteleras cartelera)
         {
             CineContext db = new CineContext();
-
-            //Tratamiento de HoraInicio
-            string hora_texto = cartelera.HoraInicio.ToString();
-            int hora_en_segundos = Int32.Parse(hora_texto.Substring(0, 2)) * 3600;
-            int minutos_en_segundos = Int32.Parse(hora_texto.Substring(2, 2)) * 60;
-            Console.WriteLine("{0}:{1}", hora_en_segundos, minutos_en_segundos);
-            //Formato de persistencia en la bd.
-            int segundostotales = (hora_en_segundos + minutos_en_segundos);
+            int segundostotales = ConversorDeHoras.HoraASegundos(cartelera.HoraInicio);
             cartelera.HoraInicio = segundostotales;
             db.Carteleras.Add(cartelera);
             db.SaveChanges();
@@ -64,11 +57,24 @@ namespace Ensayo.Models.Servicios
             db.SaveChanges();
         }
         
-        public static void ValidarIntervalo30(Carteleras cartelera)
+        public static int ValidarIntervalo30(Carteleras cartelera)
         {
-            
-
-            
+            CineContext db = new CineContext();            
+            // segundos totales representa la hora de la cartelera entrante (Nueva).
+            int segundostotales = ConversorDeHoras.HoraASegundos(cartelera.HoraInicio);            
+            int conflicto_intervalo = 0;
+            List<Carteleras> carteleras = db.Carteleras.ToList();
+            int hora_cartelera;
+            foreach (var c in carteleras)
+            {
+                hora_cartelera = ConversorDeHoras.HoraASegundos(c.HoraInicio);
+                var cartelera_conflictiva = (from x in db.Carteleras where hora_cartelera + 1800 >= segundostotales select x).Count();
+                if (cartelera_conflictiva > 0)
+                {
+                    conflicto_intervalo = 1;
+                }
+            }
+            return conflicto_intervalo;
         }
 
         public static int ValidarExistencia(Carteleras cartelera)
@@ -111,8 +117,6 @@ namespace Ensayo.Models.Servicios
                              where Carteleras.IdPelicula == codigo
                              select Carteleras).FirstOrDefault();
             return cartelera;
-
-
         }
         //public List<Carteleras> listaCarteleras()
         //{
