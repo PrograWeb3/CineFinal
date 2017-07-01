@@ -23,5 +23,13 @@ namespace Ensayo.Controllers
             Peliculas p = ServicioPeliculas.MostrarPeliculaSeleccionada(id);
             return View(p);
         }
+
+
+        //Probando Login ---Cristian
+        public ActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
