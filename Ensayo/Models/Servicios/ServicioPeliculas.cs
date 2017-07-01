@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Hosting;
 
 namespace Ensayo.Models.Servicios
 {
@@ -14,8 +15,19 @@ namespace Ensayo.Models.Servicios
             CineContext db = new CineContext();
             if (portada_pelicula.ContentLength > 0)
             {
-                string ruta = Path.Combine("~/Content/imagenes/peliculas", nueva_pelicula.Nombre);
-                nueva_pelicula.Imagen = ruta;
+                string carpetaImagenes = System.Configuration.ConfigurationManager.AppSettings["CarpetaImagenes"];
+                string pathDestino = System.Web.Hosting.HostingEnvironment.MapPath("~") + carpetaImagenes;
+                //Creamos la carpeta en caso de que no exista
+                if (!System.IO.Directory.Exists(pathDestino))
+                {
+                    System.IO.Directory.CreateDirectory(pathDestino);
+                }
+
+                string nombreArchivoFinal = nueva_pelicula.Nombre;
+                nombreArchivoFinal = string.Concat(nombreArchivoFinal, Path.GetExtension(portada_pelicula.FileName));
+                portada_pelicula.SaveAs(string.Concat(pathDestino, nombreArchivoFinal));
+                nueva_pelicula.Imagen = string.Concat(carpetaImagenes, nombreArchivoFinal);
+
             }
             nueva_pelicula.FechaCarga = DateTime.Now;
             db.Peliculas.Add(nueva_pelicula);

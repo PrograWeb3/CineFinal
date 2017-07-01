@@ -19,6 +19,9 @@
         @using (Html.BeginForm("NuevaPelicula", "Administracion", FormMethod.Post, new{enctype = "multipart/form-data"}))
 		{
             @Html.ValidationSummary(true, " ", new { @class = "text-danger" })
+
+            
+            
 			// El codigo es autoincremental
 			@Html.Label("Nombre")
 			@Html.TextBox("Nombre", null, new{@class = "form-control"})

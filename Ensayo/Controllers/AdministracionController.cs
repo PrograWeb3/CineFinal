@@ -102,7 +102,7 @@ namespace Ensayo.Controllers
         {
             //validar que no exista una cartelera con misma pelicula, sede y sala
             var CarteleraExistente = ServicioCarteleras.ValidarExistencia(cartelera);
-            var FechaSolapada = ServicioCarteleras.ValidarSolapamientoFechas(cartelera.FechaInicio, cartelera.FechaFin);
+            var FechaSolapada = ServicioCarteleras.ValidarSolapamientoFechas(cartelera);
             var Intervalo30 = ServicioCarteleras.ValidarIntervalo30(cartelera);
 
             if (ModelState.IsValid)

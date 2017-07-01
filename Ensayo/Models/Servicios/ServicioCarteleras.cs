@@ -60,17 +60,23 @@ namespace Ensayo.Models.Servicios
         public static int ValidarIntervalo30(Carteleras cartelera)
         {
             CineContext db = new CineContext();            
-            // segundos totales representa la hora de la cartelera entrante (Nueva).
-            int segundostotales = ConversorDeHoras.HoraASegundos(cartelera.HoraInicio);            
+            // segundos totales representa la hora de inicio de la cartelera entrante (Nueva).
+            int hora_inicio_entrante = ConversorDeHoras.HoraASegundos(cartelera.HoraInicio);            
             int conflicto_intervalo = 0;
             List<Carteleras> carteleras = db.Carteleras.ToList();
-            int hora_cartelera;
+            Peliculas pelicula_de_cartelera;
+            int duracion_pelicula;
+            int fin_de_funcion_segundos;
+
+
             foreach (var c in carteleras)
             {
-                // ERROR ESTA LLEGANDO YA EN SEGUNDOS... ENTONCES???
-                //hora_cartelera = ConversorDeHoras.HoraASegundos(c.HoraInicio);
-                var cartelera_conflictiva = (from x in db.Carteleras where x.HoraInicio + 1800 >= segundostotales select x).Count();
-                if (cartelera_conflictiva > 0)
+                // Calculo la hora de fin de función.
+                pelicula_de_cartelera = db.Peliculas.ToList().Find(x => x.IdPelicula == c.IdPelicula);
+                duracion_pelicula = pelicula_de_cartelera.Duracion;
+                fin_de_funcion_segundos = (duracion_pelicula * 60) + c.HoraInicio;
+
+                if (fin_de_funcion_segundos + 1800 >= hora_inicio_entrante)
                 {
                     conflicto_intervalo = 1;
                 }
@@ -87,14 +93,18 @@ namespace Ensayo.Models.Servicios
 
             return CarteleraExistente;
         }
-        public static int ValidarSolapamientoFechas(DateTime fecha_inicio, DateTime fecha_fin)
+        //Consigna
+        /* En Carteleras  no se pueden solapar (fecha hora inicio - fecha hora fin) 
+         * para una misma Sede y nro de Sala. Usen el sentido común para esto y que no se puedan solapar,
+         * verifiquen tanto los dias como los horarios. */
+        public static int ValidarSolapamientoFechas(Carteleras cartelera)
         {
             CineContext db = new CineContext();
             int solapamiento = 0;
             List<Carteleras> carteleras = db.Carteleras.ToList();
             foreach (var x in carteleras)
             {
-                if (fecha_inicio >= x.FechaInicio && fecha_inicio < x.FechaFin)
+                if (cartelera.FechaInicio >= x.FechaInicio && cartelera.FechaInicio < x.FechaFin && cartelera.NumeroSala == x.NumeroSala && cartelera.IdSede == x.IdSede)
                 {
                     solapamiento = 1;
                 }
