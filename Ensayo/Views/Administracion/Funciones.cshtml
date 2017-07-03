@@ -15,29 +15,23 @@
     </div>
 
     <div class="col-md-3">
-        <form action="">
-            <div class="input-group " id="buscadorAdmin">
-                <input type="text" class="form-control buscador" placeholder="Buscar Cartelera...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default buscar-header " type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-        </form>
+        <select name="numero_sala" id="numero_sala">
+        <option selected>Seleccion una sala</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item.NumeroSala">Sala @item.NumeroSala</option>
+        }        
+        </select>
     </div>
 
     <div class="col-md-1">
+        
 
     </div>
 </div>
 
-<div class="col-md-11">
-    <select name="numero_sala" id="numero_sala">
-        <option selected>Seleccion una sala</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
+<div class="col-md-11">    
+    
     <div class="tabla">
     @{
         int i = 1;
@@ -78,8 +72,12 @@
 			    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);                                    
 		    }
 		    //Imprimo los resultados.
-		    <div>
-			    Función @i de @hora_formato_original a @fin_funcion. Sede; @item.Sedes.Nombre. Sala @item.NumeroSala
+		    <div class="funcion">
+			    <b>Función @i</b> de @hora_formato_original a @fin_funcion.
+                <br/>
+                <b>Sede</b>: @item.Sedes.Nombre, sala @item.NumeroSala
+                <br/>
+                <b>Pelicula</b>: @item.Peliculas.Nombre
 		    </div>	        
             i++;                 
         }            

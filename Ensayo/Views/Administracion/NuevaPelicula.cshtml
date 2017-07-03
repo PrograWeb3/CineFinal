@@ -23,25 +23,27 @@
             
             
 			// El codigo es autoincremental
-			@Html.Label("Nombre")
-			@Html.TextBox("Nombre", null, new{@class = "form-control"})
-            @Html.ValidationMessage("Nombre", "", new { @class = "text-danger" })
-					
-			@Html.Label("Descripción", new{@for = "Descripcion"})
-			@Html.TextArea("Descripcion", null, new{@class = "form-control"})
-            @Html.ValidationMessage("Descripcion", "", new { @class = "text-danger" })
-					
-			@Html.Label("Clasificación", new{@for = "IdCalificacion"})
-            @Html.DropDownList("IdCalificacion", new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })
-            @Html.ValidationMessage("IdCalificacion", "", new { @class = "text-danger" })
+			<div class="for-group">
+			@Html.LabelFor(m => m.Nombre, new { @class = "col-md-2 control-label" })			
+			@Html.TextBoxFor(m => m.Nombre, null, new{@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+			</div>		
+			<div class="for-group">
+			@Html.LabelFor(m => m.Descripcion, new{@for = "Descripcion"})
+			@Html.TextAreaFor(m => m.Descripcion, new{@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Descripcion, "", new { @class = "text-danger" })
+			</div>		
+			@Html.LabelFor(m => m.IdCalificacion, new{@for = "IdCalificacion"})
+            @Html.DropDownListFor(m => m.IdCalificacion, new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.IdCalificacion, "", new { @class = "text-danger" })
             					
-			@Html.Label("Género", new{@for = "IdGenero"})
-            @Html.DropDownList("IdGenero", new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
-            @Html.ValidationMessage("IdGenero", "", new { @class = "text-danger" })
+			@Html.LabelFor(m => m.IdGenero, new{@for = "IdGenero"})
+            @Html.DropDownListFor(m => m.IdGenero, new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.IdGenero, "", new { @class = "text-danger" })
 					
-			@Html.Label("Duración", new{@for = "Duracion"})
-			@Html.TextBox("Duracion", null, new{@class = "form-control"})
-            @Html.ValidationMessage("Duracion", "", new { @class = "text-danger" })
+			@Html.LabelFor(m => m.Duracion, new{@for = "Duracion"})
+			@Html.TextBoxFor(m => m.Duracion, null, new{@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Duracion, "", new { @class = "text-danger" })
 					
 			// La fecha de cargar se almacena a nivel de aplicación.
 					

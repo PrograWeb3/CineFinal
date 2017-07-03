@@ -68,7 +68,6 @@ namespace Ensayo.Models.Servicios
             int duracion_pelicula;
             int fin_de_funcion_segundos;
 
-
             foreach (var c in carteleras)
             {
                 // Calculo la hora de fin de función.
@@ -111,6 +110,7 @@ namespace Ensayo.Models.Servicios
             }
             return solapamiento;
         }
+        
         public static Carteleras MostrarCarteleraSeleccionada(Int32 Id)
         {
             CineContext db = new CineContext();

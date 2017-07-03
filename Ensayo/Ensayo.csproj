@@ -197,6 +197,7 @@
       <DependentUpon>CineEDM.edmx</DependentUpon>
       <LastGenOutput>CineEDM.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\css\Administracion\formularios.css" />
     <Content Include="Content\css\Administracion\nueva_pelicula.css" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\css\bootstrap-theme.min.css" />
@@ -205,6 +206,7 @@
     <Content Include="Content\css\bootstrap-3.3.6-dist\js\bootstrap.js" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\js\bootstrap.min.js" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\js\npm.js" />
+    <Content Include="Content\css\Administracion\funciones.css" />
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />

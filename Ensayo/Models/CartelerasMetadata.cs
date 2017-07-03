@@ -31,7 +31,7 @@ namespace Ensayo.Models
         public System.DateTime FechaFin { get; set; }
 
         [Required]
-        [Display(Name = "Nuemero de sala")]
+        [Display(Name = "Número de sala")]
         public int NumeroSala { get; set; }
 
         [Required]

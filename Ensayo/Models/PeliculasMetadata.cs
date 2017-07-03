@@ -10,6 +10,8 @@ namespace Ensayo.Models
     public class PeliculasMetadata
     {
         [Required]
+        [Display(Name = "Ede")]
+
         public int IdPelicula { get; set; }
 
         [Required]

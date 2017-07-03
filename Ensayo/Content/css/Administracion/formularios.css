@@ -1,0 +1,44 @@
+﻿.titulo_formulario {
+    background-color: #225081;
+    color: #fff;    
+    text-align: left;
+    height: 44px;
+    padding: 2px 25px;
+}
+    .titulo_formulario > h5 {
+        font-size: 20px;
+    }
+
+.contenedor_formulario{    
+    background-color: #fff;
+    font-size: 17px;        
+}
+    .contenedor_formulario form {
+        padding: 30px 120px;
+    }
+.contenedor_formulario label {
+    background-color: #1d1d1d;
+    color: #fff;
+    font-size: 12px;
+    text-align: center !important;
+}
+.checkbox {
+    background-color: #5dbeff !important;
+
+}
+.checkbox > label {
+    background-color: #5dbeff;
+    color: #fff; 
+    font-size: 18px;
+    text-align: left !important;
+    margin-left: 50px;
+}
+#dias_proyeccion {
+    border: 2px ridge #ddd;
+    background: #eee;
+    padding: 25px;
+}
+
+.checkbox > input[type=checkbox] {
+    margin-left: 20px;
+}

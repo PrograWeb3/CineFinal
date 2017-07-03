@@ -33,9 +33,12 @@ namespace Ensayo.Controllers
         [HttpPost]
         public ActionResult NuevaPelicula(Peliculas nueva_pelicula, HttpPostedFileBase portada_pelicula)
         {
-            ServicioPeliculas.CrearPelicula(nueva_pelicula, portada_pelicula);
-            return RedirectToAction("Peliculas");
-
+            if (ModelState.IsValid)
+            {
+                ServicioPeliculas.CrearPelicula(nueva_pelicula, portada_pelicula);
+                return RedirectToAction("Peliculas");
+            }            
+            return RedirectToAction("NuevaPelicula");
         }
         
         public ActionResult EditarPelicula(Int32 Id)
