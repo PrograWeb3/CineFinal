@@ -178,9 +178,10 @@ namespace Ensayo.Controllers
         }
         public ActionResult Funciones(Int32 Id)
         {
-            List<Carteleras> carteleras = ServicioCarteleras.ListarCarteleras(Id); //Por defecto es la sala 1.
-            carteleras.OrderBy(x => x.HoraInicio);
-            return View(carteleras);
+
+            Carteleras cartelera = ServicioCarteleras.MostrarCarteleraSeleccionada(Id);
+            //carteleras.OrderBy(x => x.HoraInicio);            
+            return View(cartelera);
         }
         /*public string FuncionesPorSala(Int32 Id)
         {

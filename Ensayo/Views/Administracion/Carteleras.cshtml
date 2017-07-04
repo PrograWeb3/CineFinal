@@ -43,10 +43,10 @@
                     <th>Hora de inicio</th>
                     <th>Fin de la función</th>
                     <th>Fecha de inicio</th>
-                    <th>Fecha de fin</th>
                     <th>Número de sala</th>
                     <th>Fecha de carga</th>
                     <th>Editar</th>
+                    <th>Funciones</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
@@ -104,6 +104,7 @@
                         <td>@item.FechaCarga</td>
                        
                         <td>@Html.ActionLink("Editar", "EditarCartelera", "Administracion", new{Id = item.IdCartelera}, null)</td>
+                        <td>@Html.ActionLink("Ver funciones", "Funciones", "Administracion", new{Id = item.IdCartelera}, null)</td>
                         <td><a href="EliminarCartelera?Id=@item.IdCartelera" class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></a></td>
                     </tr>
                 }

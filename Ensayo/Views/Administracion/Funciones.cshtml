@@ -1,4 +1,4 @@
-﻿@model List<Ensayo.Carteleras>
+﻿@model Ensayo.Carteleras
 
 @{
     ViewBag.Title = "Funciones";
@@ -15,13 +15,7 @@
     </div>
 
     <div class="col-md-3">
-        <select name="numero_sala" id="numero_sala">
-        <option selected>Seleccion una sala</option>
-        @foreach (var item in Model)
-        {
-            <option value="@item.NumeroSala">Sala @item.NumeroSala</option>
-        }        
-        </select>
+        
     </div>
 
     <div class="col-md-1">
@@ -34,55 +28,78 @@
     
     <div class="tabla">
     @{
-        int i = 1;
-        foreach (var item in Model)
+        int hora_real;
+        int minutos_real;
+        
+        string fin_funcion = "";
+        int fin_funcion_en_segundos = 0;
+        
+        for(int i=1; i<=7; i++)
         {
-	                                       
-		    int hora_real = (item.HoraInicio) / 3600;
-		    int minutos_real = (item.HoraInicio % 3600) / 60;
+            
+            //Si es primera iteración toma la hora de inicio de la cartelera.
+            if(i == 1)
+            {
+                hora_real = (Model.HoraInicio) / 3600;
+                minutos_real = (Model.HoraInicio % 3600) / 60;
+                fin_funcion_en_segundos = ((Model.Peliculas.Duracion) * 60) + Model.HoraInicio;                 
+            }
+            else
+            {
+                hora_real = fin_funcion_en_segundos / 3600;
+                minutos_real = (fin_funcion_en_segundos % 3600) / 60;
+                fin_funcion_en_segundos += ((Model.Peliculas.Duracion) * 60) + 1800; // El fin de la funcion en segundos.  
+                if (fin_funcion_en_segundos > 86400)
+                {
+                    fin_funcion_en_segundos = fin_funcion_en_segundos - 86400;
+                }
+            }
+            
+            string minutos_real_texto; // Para añadir un cero a la izquierda si fuera necesario.
+            string hora_formato_original;
 
-		    string minutos_real_texto; // Para añadir un cero a la izquierda si fuera necesario.
-		    string hora_formato_original;
+            if (minutos_real < 10)
+            {
+                minutos_real_texto = minutos_real.ToString();
+                minutos_real_texto = "0" + minutos_real;
+                hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real_texto);
+            }
+            else
+            {
+                hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real);
+            }
 
-		    if (minutos_real < 10)
-		    {
-			    minutos_real_texto = minutos_real.ToString();
-			    minutos_real_texto = "0" + minutos_real;
-			    hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real_texto);
-		    }
-		    else
-		    {
-			    hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real);
-		    }
+            //Calculo el final de la funcion mediante la duracion de la pelicula.            
+            hora_real = fin_funcion_en_segundos / 3600;
+            minutos_real = (fin_funcion_en_segundos % 3600) / 60;  
+            if (minutos_real < 10)
+            {
+                minutos_real_texto = minutos_real.ToString();
+                minutos_real_texto = "0" + minutos_real;
+                fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real_texto);
+            }
+            else
+            {
+                fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);
+            }
 
-		    //Calculo el final de la funcion mediante la duracion de la pelicula.
-		    int duracion_en_segundos = ((item.Peliculas.Duracion) * 60) + item.HoraInicio;
-		    string fin_funcion;
-		    hora_real = duracion_en_segundos / 3600;
-		    minutos_real = (duracion_en_segundos % 3600) / 60;	
+            fin_funcion_en_segundos += 1800; //Le agrego la media hora de intervalo.
 
-		    if (minutos_real < 10)
-		    {
-			    minutos_real_texto = minutos_real.ToString();
-			    minutos_real_texto = "0" + minutos_real;
-			    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real_texto);
-		    }
-		    else
-		    {
-			    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);                                    
-		    }
-		    //Imprimo los resultados.
-		    <div class="funcion">
+            if (fin_funcion_en_segundos > 86400)
+            {
+                fin_funcion_en_segundos = fin_funcion_en_segundos - 86400;
+            }
+            
+            <div class="funcion">
 			    <b>Función @i</b> de @hora_formato_original a @fin_funcion.
-                <br/>
-                <b>Sede</b>: @item.Sedes.Nombre, sala @item.NumeroSala
-                <br/>
-                <b>Pelicula</b>: @item.Peliculas.Nombre
-		    </div>	        
-            i++;                 
-        }            
-     }
+		    </div>
+        }    
+    }
+		    	        
+
     </div>
+    .
+
     <div class="row">
         <div id="paginador">
             <ul class="pagination">
