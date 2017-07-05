@@ -13,6 +13,7 @@ namespace Ensayo.Controllers
 
         private CineContext db = new CineContext();
 
+        // Primer formulario de reservas
         public ActionResult Reserva(int IdPelicula)
         {
             var pelicula = ServicioCarteleras.BuscarCartelera(IdPelicula);
@@ -21,33 +22,99 @@ namespace Ensayo.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Reserva(FormCollection reservas)
+        {
+            
+            int IdPelicula = int.Parse(Request.Form["IdPelicula"]);
+            int IdVersion = int.Parse(Request.Form["IdVersion"]);
+            int sede = int.Parse(Request.Form["IdSede"]);
+            string dia = Request.Form["DiasReservas"];
+            string hora = Request.Form["HorasReservas"];
+
+            var reserva = ServicioReservas.cargarReserva(IdPelicula, IdVersion, sede, dia, hora);
+
+            return RedirectToAction("ConfirmarReserva", reserva);
+           
+        }
+
+
 
         public ActionResult ConfirmarReserva(Reservas reserva)
         {
+
             ModelView model = new ModelView();
-            var cartelera = ServicioCarteleras.BuscarCartelera(reserva.IdPelicula);
+            var cartelera = ServicioCarteleras.BuscarCarteleraReserva(reserva.IdVersion, reserva.IdPelicula, reserva.IdSede);
             var tipoDni = ServicioTipoDocumento.listatipoDocumentos();
             ViewBag.tipoDNI = tipoDni;
 
-            model.Carteleras = cartelera;
             model.Reservas = reserva;
+            model.Carteleras = cartelera;
 
             return View(model);
         }
 
 
-        //[HttpPost]
-        public ActionResult ConfirmarReserva2(ModelView ModelView, int? id)
+
+        [HttpPost]
+        public ActionResult ConfirmarReserva(ModelView model)
         {
+            if (ModelState.IsValid)
+            {
+                Reservas reserva = model.Reservas;
+                ServicioReservas.guardarReserva(reserva);
+                return RedirectToAction("ReservaCompleta", reserva);
+            }
+            var cartelera = ServicioCarteleras.BuscarCarteleraReserva(model.Reservas.IdVersion, model.Reservas.IdPelicula, model.Reservas.IdSede);
+            model.Carteleras = cartelera;
 
-            ModelView.Reservas.FechaCarga = DateTime.Now;
-            ModelView.Reservas.FechaHoraInicio = DateTime.Now;
+            var tipoDni = ServicioTipoDocumento.listatipoDocumentos();
+            ViewBag.tipoDNI = tipoDni;
 
-            db.Reservas.Add(ModelView.Reservas);
-            db.SaveChanges();
-
-            return View("");
+            return View(model);
         }
+
+
+
+
+        public ActionResult ReservaCompleta(Reservas reserva)
+        {
+            var sedePrecio = ServicioSedes.buscarSedeReserva(reserva);
+
+            decimal total = sedePrecio.PrecioGeneral * reserva.CantidadEntradas;
+            ViewBag.precioTotal = total;
+            return View(reserva);
+        }
+
+
+
+
+        //public ActionResult ConfirmarReserva(Reservas reserva)
+        //{
+        //    ModelView model = new ModelView();
+        //    var cartelera = ServicioCarteleras.BuscarCartelera(reserva.IdPelicula);
+        //    var tipoDni = ServicioTipoDocumento.listatipoDocumentos();
+        //    ViewBag.tipoDNI = tipoDni;
+
+        //    model.Carteleras = cartelera;
+        //    model.Reservas = reserva;
+
+        //    return View(model);
+        //}
+
+
+        //[HttpPost]
+        //public ActionResult ConfirmarReserva2(ModelView ModelView, int? id)
+        //{
+
+        //    ModelView.Reservas.FechaCarga = DateTime.Now;
+        //    ModelView.Reservas.FechaHoraInicio = DateTime.Now;
+
+        //    db.Reservas.Add(ModelView.Reservas);
+        //    db.SaveChanges();
+
+        //    return View("");
+        //}
 
 
 
@@ -67,6 +134,32 @@ namespace Ensayo.Controllers
             return Json(listaSede, JsonRequestBehavior.AllowGet);
         }
 
+
+        public JsonResult GetDIasList(int IdVersion, int IdPelicula, int IdSede)
+        {
+            if (IdVersion == 0 || IdPelicula == 0 || IdSede == 0)
+            {
+                List<Dias> DiasVacia = new List<Dias>();
+                return Json(DiasVacia, JsonRequestBehavior.AllowGet);
+            }
+            var NuevaHoras = ServicioDias.solapamientoDiasReservas(IdVersion, IdPelicula, IdSede);
+            return Json(NuevaHoras, JsonRequestBehavior.AllowGet);
+
+
+        }
+
+
+
+        public JsonResult GetHorasList(int IdVersion, int IdPelicula, int IdSede)
+        {
+            if (IdVersion == 0 || IdPelicula == 0 || IdSede == 0)
+            {
+                List<Horas> HoraVacia = new List<Horas>();
+                return Json(HoraVacia, JsonRequestBehavior.AllowGet);
+            }
+            var NuevaHoras = ServicioHoras.solapamientoHorasReservas(IdVersion, IdPelicula, IdSede);
+            return Json(NuevaHoras, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

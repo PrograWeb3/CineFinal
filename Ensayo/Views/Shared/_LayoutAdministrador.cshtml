@@ -19,6 +19,9 @@
    
 
 </head>
+
+
+@Html.Partial("_LoginPartial")
 <body>
     <div id="cabecera">
         <div class="row">
@@ -26,8 +29,11 @@
                 <a href="#"><img src="../../Content/Imagenes/logo.png" alt="Home" id="logoAdmmin"></a>
             </div>
             <div id="usuarioAdmin">
-                <a href="#">Cristian Cordero </a>
-                <a href="#">Cerrar sesion</a>
+
+                @if (Session["UserID"] != null)
+                {
+                    <p>Bienvenido @Session["UserName"].ToString() @Html.ActionLink("Cerrar sesion", "Logout", "Index")</p>
+                }
             </div>
         </div>
     </div>

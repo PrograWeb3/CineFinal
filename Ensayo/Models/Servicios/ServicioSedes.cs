@@ -25,5 +25,19 @@ namespace Ensayo.Models.Servicios
             Sedes s = db.Sedes.ToList().Find(sede => sede.IdSede == codigo);
             return s;
         }
+
+
+
+        static public Sedes buscarSedeReserva(Reservas reserva)
+        {
+            CineContext db = new CineContext();
+
+            var res = (from Reservas in db.Reservas
+                       from Sedes in db.Sedes
+                       where Reservas.IdSede == Sedes.IdSede && Sedes.IdSede == reserva.IdSede
+                       select Sedes).FirstOrDefault();
+
+            return res;
+        }
     }
 }

@@ -1,0 +1,81 @@
+﻿@model Ensayo.Reservas
+@{
+    ViewBag.Title = "ReservaCompleta";
+}
+
+
+
+<div class="col-md-10 col-md-offset-1" >
+
+   
+
+    <div class="row">
+
+        <div class="col-xs-12">
+            <h2 id="titReserva">Reserva de Pelicula</h2>
+
+            <div class="alert alert-success"><span id="MensajeCorrecto">Se guardo correctamente la reserva de pelicula </span></div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Datos de la reserva</h4>
+                    <br />
+                </div>
+                <div class="panel-body">
+
+
+
+                    
+                    <div class="row">
+                        <div id="tablaReserva">
+
+                            <table class="table table-borderless table-condensed table-hover " >
+
+                                <tr id="1fila">
+                                    <th>Codigo de reserva:</th>
+                                    <th>@Model.IdReserva</th>
+                                </tr>
+
+                                <tr>
+                                    <th>Cantidad de entradas</th>
+                                    <th>@Model.CantidadEntradas</th>
+                                </tr>
+
+                                <tr>
+                                    <th>Total a pagar:</th>
+                                    <th>$ @ViewBag.precioTotal</th>
+                                </tr>
+
+
+
+                            </table>
+                        </div>
+                       
+                        
+
+                    </div>
+                    
+                    <div>
+
+                    </div>
+                  
+
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    @Html.ActionLink("Cerrar", "Index", "Index","",new { @class= "btn btn-primary" ,id="btnReservas"})
+</div>
+
+
+
+
+        

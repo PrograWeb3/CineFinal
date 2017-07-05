@@ -129,19 +129,20 @@ namespace Ensayo.Models.Servicios
                              select Carteleras).FirstOrDefault();
             return cartelera;
         }
-        //public List<Carteleras> listaCarteleras()
-        //{
-        //    List<Carteleras> cartelera = (from Carteleras in cine.Cartelerass
-        //                                  select cartelera).ToList();
-        //    return cartelera;
-        //}
 
-        //public List<Sedes> listaSede()
-        //{
-        //    List<Sedes> sedes = (from Sedes in cine.Sedess
-        //                         select Sedes).ToList();
-        //    return sedes;
-        //}
+        public static Carteleras BuscarCarteleraReserva(int IdVersiones, int IdPelicula, int IdSedes)
+        {
+            CineContext db = new CineContext();
+            var cartelera = (from Carteleras c in db.Carteleras
+                             where c.IdVersion == IdVersiones && c.IdPelicula == IdPelicula && c.IdSede == IdSedes
+                             select c).FirstOrDefault();
+            return cartelera;
+
+        }
+
+
+
+
 
     }
 }

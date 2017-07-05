@@ -114,7 +114,9 @@
 
 }
 
-
+.thumbnailImagenes{
+    min-height: 400px;
+}
 
 /*Contenedor derecho - barra de menus*/
 
@@ -160,6 +162,13 @@
     color: white;
 }
 
+.main-center legend ,h2{
+  margin-left:-20px;
+}
+
+.ErrorLogin{
+  margin-left:-40px;
+}
 
 /*Reserva de entradas*/
 #contenedorReserva{
@@ -263,11 +272,50 @@
 #formReserva {
     border:1px solid #dddddd;
     margin-top:5px;
-    margin-bottom:20px;
 }
 
 #formReserva form {
     margin-top:40px;
     margin-left:20px;
+    margin-bottom:40px;
+
+}
+
+
+
+/*tabla confirmacion reserva*/
+#tablaReserva table tr{
+
+    margin-bottom:200px;
+}
+
+#1fila{
+    border:2px;
+    margin-top:20px;
+    background-color:red;
+}
+
+
+.panel-body {
+margin-top:-16px;
+}
+
+.table-condensed>tbody>tr>th{
+    
+    padding:15px;
+}
+
+.table-condensed>tbody>tr{
+    
+    padding-top:200px;
+}
+
+#btnReservas{
+    color:white;
+}
+
+#titReserva{
+    margin-left:0px;
+   
 }
 

@@ -66,57 +66,64 @@
         <div id="formReserva">
 
 
-            <form class="form-horizontal" method="post" action="ConfirmarReserva2">
+            <form class="form-horizontal" method="post" action="ConfirmarReserva">
+
+                @Html.AntiForgeryToken()
+
+                <fieldset>
+                    <!--Campo oculto input pelicula-->
+                    @Html.TextBoxFor(m => m.Reservas.IdVersion, new { @class = "hidden" })
+                    @Html.TextBoxFor(m => m.Reservas.IdPelicula, new { @class = "hidden" })
+                    @Html.TextBoxFor(m => m.Reservas.IdSede, new { @class = "hidden" })
+                    @Html.TextBoxFor(m => m.Reservas.FechaHoraInicio, new { @class = "hidden" })
 
 
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Reservas.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(m => m.Reservas.Email, new { @class = "form-control", placeholder = "Jhon@example.com" })
+                            @Html.ValidationMessageFor(m => m.Reservas.Email)
 
-                <!--Campo oculto input pelicula-->
-                @Html.TextBoxFor(m => m.Reservas.IdVersion, new { @class = "hidden" })
-                @Html.TextBoxFor(m => m.Reservas.IdPelicula, new { @class = "hidden" });
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Reservas.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-7">
-                        @Html.TextBoxFor(m => m.Reservas.Email, new { @class = "form-control", placeholder = "Jhon@example.com" })
-                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                        </div>
                     </div>
-                </div>
 
-                <!--Tipo de documento - SelecList-->
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Reservas.IdTipoDocumento, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-7">
+                    <!--Tipo de documento - SelecList-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Reservas.IdTipoDocumento, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-7">
 
-                        @Html.DropDownListFor(m => m.Reservas.IdTipoDocumento, new SelectList(@ViewBag.tipoDNI, "IdTipoDocumento", "Descripcion"), "Seleccionar tipo de documento", new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.Reservas.IdTipoDocumento, new SelectList(@ViewBag.tipoDNI, "IdTipoDocumento", "Descripcion"), "Seleccionar tipo de documento", new { @class = "form-control" })
 
 
-                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                            @Html.ValidationMessageFor(m => m.Reservas.IdTipoDocumento)
+                        </div>
                     </div>
-                </div>
 
-                <!--Numero de documento - Verificar en Bd-->
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Reservas.NumeroDocumento, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-7">
-                        @Html.TextBoxFor(m => m.Reservas.NumeroDocumento, new { @class = "form-control", placeholder = "N° DNI" })
-                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    <!--Numero de documento - Verificar en Bd-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Reservas.NumeroDocumento, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(m => m.Reservas.NumeroDocumento, new { @class = "form-control", placeholder = "N° DNI" })
+                            @Html.ValidationMessageFor(m => m.Reservas.NumeroDocumento)
+                        </div>
                     </div>
-                </div>
 
-                <!--Canidad de entradas-->
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Reservas.CantidadEntradas, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-7">
-                        @Html.TextBoxFor(m => m.Reservas.CantidadEntradas, new { @class = "form-control", placeholder = "Cantidad entradas" })
-                        @*@Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })*@
+                    <!--Canidad de entradas-->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Reservas.CantidadEntradas, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(m => m.Reservas.CantidadEntradas, new { @class = "form-control", placeholder = "Cantidad entradas" })
+                            @Html.ValidationMessageFor(m => m.Reservas.CantidadEntradas)
+                        </div>
                     </div>
-                </div>
 
 
 
 
 
-                <input type="submit" value="RESERVAR" id="btn_reservar" />
+                    <input type="submit" value="RESERVAR" id="btn_reservar" />
+                </fieldset>
             </form>
 
         </div>
@@ -124,4 +131,6 @@
     </div>
 
 </div>
+
+
 

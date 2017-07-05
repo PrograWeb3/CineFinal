@@ -1,0 +1,16 @@
+﻿@if (Session["UserID"] == null)
+
+{
+    //Guardar url en variable de session 
+    @*@Session["Url"] = @Request.Url.ToString();
+
+
+        string url = @Session["Url"].ToString();
+
+        url.Remove(5, 10);*@
+
+
+
+    Response.Redirect("../Index/Login/");
+
+}

@@ -158,14 +158,24 @@
     <Compile Include="Models\Carteleras.cs" />
     <Compile Include="Models\CartelerasMetadata.cs" />
     <Compile Include="Models\ConversorDeHoras.cs" />
+    <Compile Include="Models\Dias.cs" />
+    <Compile Include="Models\Horas.cs" />
     <Compile Include="Models\ModelView.cs" />
     <Compile Include="Models\Peliculas.cs" />
     <Compile Include="Models\PeliculasMetadata.cs" />
+    <Compile Include="Models\Reservas.cs" />
+    <Compile Include="Models\ReservasMetadata.cs" />
     <Compile Include="Models\Servicios\ServicioCarteleras.cs" />
+    <Compile Include="Models\Servicios\ServicioDias.cs" />
+    <Compile Include="Models\Servicios\ServicioHoras.cs" />
     <Compile Include="Models\Servicios\ServicioPeliculas.cs" />
+    <Compile Include="Models\Servicios\ServicioReservas.cs" />
     <Compile Include="Models\Servicios\ServicioSedes.cs" />
     <Compile Include="Models\Servicios\ServicioTipoDocumento.cs" />
+    <Compile Include="Models\Servicios\ServicioUsuarios.cs" />
     <Compile Include="Models\Servicios\ServicioVersiones.cs" />
+    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Models\UsuariosMetadata.cs" />
     <Compile Include="Peliculas.cs">
       <DependentUpon>CineEDM.tt</DependentUpon>
     </Compile>
@@ -212,6 +222,7 @@
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\reserva.css" />
     <Content Include="Content\css\Administracion\SiteAdministrador.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="Content\js\funciones.js" />
     <Content Include="Content\SiteAdministrador.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -331,6 +342,9 @@
     <Content Include="Views\Peliculas\ConfirmarReserva.cshtml" />
     <Content Include="Views\Peliculas\Reserva.cshtml" />
     <Content Include="Views\Administracion\NuevaPelicula.cshtml" />
+    <Content Include="Views\Index\Login.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Peliculas\ReservaCompleta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
