@@ -165,6 +165,8 @@
     <Compile Include="Models\PeliculasMetadata.cs" />
     <Compile Include="Models\Reservas.cs" />
     <Compile Include="Models\ReservasMetadata.cs" />
+    <Compile Include="Models\Sedes.cs" />
+    <Compile Include="Models\SedesMetadata.cs" />
     <Compile Include="Models\Servicios\ServicioCarteleras.cs" />
     <Compile Include="Models\Servicios\ServicioDias.cs" />
     <Compile Include="Models\Servicios\ServicioHoras.cs" />

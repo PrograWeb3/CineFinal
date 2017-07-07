@@ -96,8 +96,12 @@ namespace Ensayo.Controllers
         [HttpPost]
         public ActionResult NuevaSedes(Sedes nueva_sede)
         {
-            ServicioSedes.CrearSede(nueva_sede);
-            return RedirectToAction("Sedes");
+            if (ModelState.IsValid)
+            {
+                ServicioSedes.CrearSede(nueva_sede);
+                return RedirectToAction("Sedes");
+            }
+            return View(nueva_sede);
         }
         public ActionResult EditarSede(Int32 Id)
         {
@@ -107,8 +111,12 @@ namespace Ensayo.Controllers
         [HttpPost]
         public ActionResult EditarSede(Sedes sede)
         {
-            ServicioSedes.EditarSede(sede);
-            return RedirectToAction("Sedes");
+            if (ModelState.IsValid)
+            {
+                ServicioSedes.EditarSede(sede);
+                return RedirectToAction("Sedes");
+            }
+            return View(sede);
         }
         /*Metodos controller para las carteleras*/
 
