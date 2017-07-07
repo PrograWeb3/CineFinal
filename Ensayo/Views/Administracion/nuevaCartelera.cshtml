@@ -5,8 +5,6 @@
     ViewBag.Title = "nuevaCartelera";
 }
 
-
-
 <div class="contenedor_formulario">
     <div class="titulo_formulario">
         <h5>Nueva cartelera</h5>
@@ -16,8 +14,8 @@
             
             <!--Sedes-->
             <div class="form-group">  
-                @Html.LabelFor(m => m.Sedes, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.Sedes, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.DropDownListFor(m => m.IdSede, new SelectList(@ViewBag.sedes, "IdSede", "Nombre"), "Selecciones Sede ", new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.IdSede, "", new { @class = "text-danger" })
                 </div>
@@ -25,8 +23,8 @@
 
             <!--Pelicula-->
             <div class="form-group">
-                @Html.LabelFor(m => m.Peliculas, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.Peliculas, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.DropDownListFor(m => m.IdPelicula, new SelectList(@ViewBag.peliculas, "IdPelicula", "Nombre"), "Selecciones Pelicula ", new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.IdPelicula, "", new { @class = "text-danger" })
                 </div>
@@ -34,8 +32,8 @@
 
             <!--Hora de inicio-->
             <div class="form-group">
-                @Html.LabelFor(m => m.HoraInicio, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.HoraInicio, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.TextBoxFor(m => m.HoraInicio, new { @class = "form-control", placeholder = "Ingrese hora de incio" })
                     @Html.ValidationMessageFor(m => m.HoraInicio, "", new { @class = "text-danger" })
                 </div>
@@ -43,8 +41,8 @@
 
             <!--Fecha de Inicio-->
             <div class="form-group">
-                @Html.LabelFor(m => m.FechaInicio, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.FechaInicio, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.TextBoxFor(m => m.FechaInicio, new { @class = "form-control" , placeholder="dd-mm-aaaa" })
                     @Html.ValidationMessageFor(m => m.FechaInicio, "", new { @class = "text-danger" })
                 </div>
@@ -52,8 +50,8 @@
 
             <!--Fecha de fin-->
             <div class="form-group">
-                @Html.LabelFor(m => m.FechaFin, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.FechaFin, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.TextBoxFor(m => m.FechaFin, new { @class = "form-control", placeholder = "dd-mm-aaaa" })
                     @Html.ValidationMessageFor(m => m.FechaFin, "", new { @class = "text-danger" })
                 </div>
@@ -61,8 +59,8 @@
 
             <!--Numero de sala-->
             <div class="form-group">
-                @Html.LabelFor(m => m.NumeroSala, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.NumeroSala, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.TextBoxFor(m => m.NumeroSala, new { @class = "form-control", placeholder = "Ingrese numero sala" })
                     @Html.ValidationMessageFor(m => m.NumeroSala, "", new { @class = "text-danger" })
                 </div>
@@ -70,8 +68,8 @@
 
             <!--Version de pelicula-->
             <div class="form-group">
-                @Html.LabelFor(m => m.Versiones, new { @class = "col-md-2 control-label" })
-                <div class="col-md-5">
+                @Html.LabelFor(m => m.Versiones, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
                     @Html.DropDownListFor(m => m.IdVersion, new SelectList(@ViewBag.Versiones, "IdVersion", "Nombre"), "Selecciones version de pelicula", new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.IdVersion, "", new { @class = "text-danger" })
                 </div>
@@ -108,7 +106,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
+                    <div class="col-lg-10">
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.Jueves)
                             @Html.LabelFor(m => m.Jueves)
@@ -126,7 +124,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
+                    <div class="col-lg-10">
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.Sabado)
                             @Html.LabelFor(m => m.Sabado)
@@ -143,12 +141,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-5">
-                    <input type="submit" class="btn btn-lg btn-primary" value="Registrar">
-                </div>
-            </div>
+			<input type="submit" class="btn btn-lg btn-primary" value="Crear">
         </form>
 </div>
 

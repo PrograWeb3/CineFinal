@@ -13,6 +13,18 @@ namespace Ensayo.Models.Servicios
             db.Sedes.Add(nueva_sede);
             db.SaveChanges();
         }
+        public static void EditarSede(Sedes sede)
+        {
+            CineContext db = new CineContext();
+            var sede_a_editar = from x in db.Sedes where x.IdSede == sede.IdSede select x;
+            foreach (Sedes item in sede_a_editar)
+            {
+                item.Nombre = sede.Nombre;
+                item.Direccion = sede.Direccion;
+                item.PrecioGeneral = sede.PrecioGeneral;
+            }
+            db.SaveChanges();
+        }
         public static List<Sedes> ListarSedes()
         {
             CineContext db = new CineContext();
@@ -26,17 +38,13 @@ namespace Ensayo.Models.Servicios
             return s;
         }
 
-
-
         static public Sedes buscarSedeReserva(Reservas reserva)
         {
             CineContext db = new CineContext();
-
             var res = (from Reservas in db.Reservas
                        from Sedes in db.Sedes
                        where Reservas.IdSede == Sedes.IdSede && Sedes.IdSede == reserva.IdSede
                        select Sedes).FirstOrDefault();
-
             return res;
         }
     }

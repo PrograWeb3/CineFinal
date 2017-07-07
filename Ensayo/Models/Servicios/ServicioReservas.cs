@@ -7,9 +7,6 @@ namespace Ensayo.Models.Servicios
 {
     public abstract class ServicioReservas
     {
-
-
-
         static public void guardarReserva(Reservas reserva)
         {
             CineContext db = new CineContext();
@@ -17,7 +14,6 @@ namespace Ensayo.Models.Servicios
             reserva.FechaCarga = DateTime.Now;
             db.Reservas.Add(reserva);
             db.SaveChanges();
-
         }
 
         static public Reservas cargarReserva(int IdPelicula, int IdVersion, int sede, string dia, string hora)
@@ -35,6 +31,12 @@ namespace Ensayo.Models.Servicios
             reserva.FechaHoraInicio = DiaReserva;
 
             return reserva;
+        }
+        public static List<Reservas> CrearReporte(DateTime FechaI, DateTime FechaF)
+        {
+            CineContext db = new CineContext();
+            List<Reservas> reservas = (from r in db.Reservas where r.FechaHoraInicio >= FechaI && r.FechaHoraInicio <= FechaF select r).ToList();
+            return reservas;
         }
     }
 }

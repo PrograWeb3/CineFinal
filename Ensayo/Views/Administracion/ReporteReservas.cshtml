@@ -1,0 +1,59 @@
+﻿@model List<Ensayo.Reservas>
+
+@{
+    ViewBag.Title = "ReporteReservas";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>ReporteReservas</h2>
+<div class="row">
+    <div class="col-offset-md-7 col-offset-lg-7 col-md-5 col-lg-5"></div>
+    @using(Html.BeginForm("CrearReporte", "Administracion", FormMethod.Post, new{@class = "form-inline", role="form"}))
+    {
+        <div class="form-group">
+            @Html.Label("Desde", new{@for = "FechaI"})
+            @Html.TextBox("FechaI")
+            @Html.Label("hasta", new{@for = "FechaF"})
+            @Html.TextBox("FechaF")
+        </div>
+        <div class="form-group">
+			<input type="submit" class="btn btn-info" value="Consultar" id="btn_consultar_reservas"/>
+		</div>
+    }
+</div>
+<div id="reporte_reservas">
+    @if (Model != null && Model.Count > 0 && ViewBag.error == null)
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Sede</th>
+                    <th>Versión</th>
+                    <th>Precio</th>
+                    <th>Fecha</th>
+                    <th>Película</th>                    
+                </tr>
+            </thead>
+            <tbody>               
+                    @foreach (var item in Model)
+                    {            
+                        <tr>
+                            <td>@item.IdReserva</td>
+                            <td>@item.Sedes.Nombre</td>                        
+                            <td>@item.Versiones.Nombre</td>                                                    
+                            <td>@item.Sedes.PrecioGeneral</td>                        
+                            <td>@item.FechaHoraInicio.ToShortDateString()</td>
+                            <td>@item.Peliculas.Nombre</td>                        
+                        </tr>
+                    }                
+            </tbody>        
+        </table>        
+    }
+    <div id="mensaje_error">
+        <h2 class="text-danger">@ViewBag.error</h2>         
+    </div>
+</div>
+
+
+

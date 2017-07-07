@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
-            Crear nueva Sede
+            Editar sede
         </h1>
     </div>
 </div>
@@ -18,7 +18,7 @@
 
         @using (Html.BeginForm("EditarSede", "Administracion", FormMethod.Post, new { @class= "form-horizontal" , @id= "form-registracion" }))
         {
-
+            <input type="hidden" value="@Model.IdSede" name="IdSede"/>   
             <div class="form-group">
                 @Html.LabelFor(m => m.Nombre, new { @class = "col-md-2 control-label" })
                 <div class="col-md-5">
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for=""></label>
                 <div class="col-md-5">
-                    <input type="submit" class="btn btn-primary" value="Registrar">
+                    <input type="submit" class="btn btn-primary" value="Guardar cambios">
                 </div>
             </div>
         }

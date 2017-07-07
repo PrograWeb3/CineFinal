@@ -6,126 +6,112 @@
 }
 
 <div class="row">
-    <div class="col-md-7">
-        <h1 class="page-header">Gestión de Carteleras</h1>
-    </div>
-
-    <div class="col-md-1">
-        @Html.ActionLink("Ver funciones", "Funciones", "Administracion", new { Id = 1 }, null);        
-        @Html.ActionLink("Crear", "NuevaCartelera", "Administracion");        
-    </div>
-
-    <div class="col-md-3">
-        <form action="">
-            <div class="input-group " id="buscadorAdmin">
-                <input type="text" class="form-control buscador" placeholder="Buscar Cartelera...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default buscar-header " type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-        </form>
-    </div>
-
-    <div class="col-md-1">
-
-    </div>
+	<div class="col-md-8">
+		<h1 class="titulo_presentacion_datos">Gestión de Carteleras</h1>
+	</div>
+	<div class="col-md-1">
+		<button type="button" class="btn btn-primary boton_crear" href="NuevaCartelera">Crear</button>		
+	</div>
+	<div class="col-md-3">		
+		<div id="buscador">
+			<form action="BuscarRegistro" class="form-inline">
+				<input type="text" class="form-control" placeholder="Buscar Cartelera...">
+				<button class="btn btn-default btn_buscador" type="button"><span class="glyphicon glyphicon-search"></span></button>				
+			</form>
+		</div>
+	</div>
+	
 </div>
 
-<div class="col-md-11">
-    <div class="tabla">
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Sede</th>
-                    <th>Pelicula</th>
-                    <th>Version</th>
-                    <th>Hora de inicio</th>
-                    <th>Fin de la función</th>
-                    <th>Fecha de inicio</th>
-                    <th>Número de sala</th>
-                    <th>Fecha de carga</th>
-                    <th>Editar</th>
-                    <th>Funciones</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.IdCartelera</td>
-                        <td>@item.Sedes.Nombre</td>
-                        <td>@item.Peliculas.Nombre</td>
-                        <td>@item.Versiones.Nombre</td>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sede</th>
+            <th>Pelicula</th>
+            <th>Version</th>
+            <th>Hora de inicio</th>                    
+            <th>Fecha de inicio</th>
+            <th>Fecha de fin</th>
+            <th>Número de sala</th>
+            <th>Fecha de carga</th>
+            <th>Funciones</th>
+            <th>Editar</th>                    
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdCartelera</td>
+                <td>@item.Sedes.Nombre</td>
+                <td>@item.Peliculas.Nombre</td>
+                <td>@item.Versiones.Nombre</td>
 
-                            @{                                 
-	                            int hora_real = (item.HoraInicio) / 3600;
-	                            int minutos_real = (item.HoraInicio % 3600) / 60;
+                    @{                                 
+	                    int hora_real = (item.HoraInicio) / 3600;
+	                    int minutos_real = (item.HoraInicio % 3600) / 60;
 
-	                            string minutos_real_texto; // Para añadir un cero a la izquierda si fuera necesario.
-	                            string hora_formato_original;
+	                    string minutos_real_texto; // Para añadir un cero a la izquierda si fuera necesario.
+	                    string hora_formato_original;
 
-	                            if (minutos_real < 10)
-	                            {
-		                            minutos_real_texto = minutos_real.ToString();
-		                            minutos_real_texto = "0" + minutos_real;
-		                            hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real_texto);
-	                            }
-	                            else
-	                            {
-		                            hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real);
-	                            }
+	                    if (minutos_real < 10)
+	                    {
+		                    minutos_real_texto = minutos_real.ToString();
+		                    minutos_real_texto = "0" + minutos_real;
+		                    hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real_texto);
+	                    }
+	                    else
+	                    {
+		                    hora_formato_original = String.Format("{0}:{1}", hora_real, minutos_real);
+	                    }
 
-	                            //Calculo el final de la funcion mediante la duracion de la pelicula.
-                                int duracion_en_segundos = ((item.Peliculas.Duracion) * 60) + item.HoraInicio;                                
-	                            string fin_funcion;
-	                            hora_real = duracion_en_segundos / 3600;
-                                minutos_real = (duracion_en_segundos % 3600) / 60;	
+	                    //Calculo el final de la funcion mediante la duracion de la pelicula.
+                        /*int duracion_en_segundos = ((item.Peliculas.Duracion) * 60) + item.HoraInicio;                                
+	                    string fin_funcion;
+	                    hora_real = duracion_en_segundos / 3600;
+                        minutos_real = (duracion_en_segundos % 3600) / 60;	
 	
-	                            if (minutos_real < 10)
-	                            {
-		                            minutos_real_texto = minutos_real.ToString();
-		                            minutos_real_texto = "0" + minutos_real;
-                                    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real_texto);
-	                            }
-	                            else
-	                            {
-                                    fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);                                    
-	                            }
-	                            //Imprimo los resultados.
-	                            <td>@hora_formato_original</td>
-	                            <td>@fin_funcion</td>
-	                            }
+	                    if (minutos_real < 10)
+	                    {
+		                    minutos_real_texto = minutos_real.ToString();
+		                    minutos_real_texto = "0" + minutos_real;
+                            fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real_texto);
+	                    }
+	                    else
+	                    {
+                            fin_funcion = String.Format("{0}:{1}", hora_real, minutos_real);                                    
+	                    }*/
+	                    //Imprimo los resultados.
+	                    <td>@hora_formato_original</td>	                            
+	                    }
                         
-                        <td>@item.FechaInicio</td>
-                        <td>@item.FechaFin</td>
-                        <td>@item.NumeroSala</td>
-                        <td>@item.FechaCarga</td>
-                       
-                        <td>@Html.ActionLink("Editar", "EditarCartelera", "Administracion", new{Id = item.IdCartelera}, null)</td>
-                        <td>@Html.ActionLink("Ver funciones", "Funciones", "Administracion", new{Id = item.IdCartelera}, null)</td>
-                        <td><a href="EliminarCartelera?Id=@item.IdCartelera" class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></a></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <div id="paginador">
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
-        </div>
+                <td>@item.FechaInicio.ToShortDateString()</td>
+                <td>@item.FechaFin.ToShortDateString()</td>                        
+                <td>@item.NumeroSala</td>
+                <td>@item.FechaCarga.ToShortDateString()</td>                        
+                <td>@Html.ActionLink("Ver funciones", "Funciones", "Administracion", new{Id = item.IdCartelera}, null)</td>
+                <td>@Html.ActionLink("Editar", "EditarCartelera", "Administracion", new{Id = item.IdCartelera}, null)</td>                        
+                <td><a href="EliminarCartelera?Id=@item.IdCartelera" class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        }
+    </tbody>
+</table>   
+<div class="row">
+    <div id="paginador">
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
     </div>
 </div>
 

@@ -5,51 +5,55 @@
     Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-12">
-        <h1 class="page-header">
-            Nueva Pelicula
-        </h1>
+<div class="contenedor_formulario">
+    <div class="titulo_formulario">
+        <h5>NuevaPelicula</h5>
     </div>
-</div>
-
-<div class="col-md-10">
-    <div class="tabla">
-
-        @using (Html.BeginForm("NuevaPelicula", "Administracion", FormMethod.Post, new{enctype = "multipart/form-data"}))
-		{
-            @Html.ValidationSummary(true, " ", new { @class = "text-danger" })
-
-            
-            
-			// El codigo es autoincremental
-			<div class="for-group">
-			@Html.LabelFor(m => m.Nombre, new { @class = "col-md-2 control-label" })			
-			@Html.TextBoxFor(m => m.Nombre, null, new{@class = "form-control"})
-            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
-			</div>		
-			<div class="for-group">
-			@Html.LabelFor(m => m.Descripcion, new{@for = "Descripcion"})
-			@Html.TextAreaFor(m => m.Descripcion, new{@class = "form-control"})
-            @Html.ValidationMessageFor(m => m.Descripcion, "", new { @class = "text-danger" })
-			</div>		
-			@Html.LabelFor(m => m.IdCalificacion, new{@for = "IdCalificacion"})
-            @Html.DropDownListFor(m => m.IdCalificacion, new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.IdCalificacion, "", new { @class = "text-danger" })
-            					
-			@Html.LabelFor(m => m.IdGenero, new{@for = "IdGenero"})
-            @Html.DropDownListFor(m => m.IdGenero, new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.IdGenero, "", new { @class = "text-danger" })
-					
-			@Html.LabelFor(m => m.Duracion, new{@for = "Duracion"})
-			@Html.TextBoxFor(m => m.Duracion, null, new{@class = "form-control"})
-            @Html.ValidationMessageFor(m => m.Duracion, "", new { @class = "text-danger" })
-					
-			// La fecha de cargar se almacena a nivel de aplicación.
-					
-			<input type="file" name="portada_pelicula"/>
-			<input type="submit" value="Crear" />
-		}				
-
-    </div>
+	@using (Html.BeginForm("NuevaPelicula", "Administracion", FormMethod.Post, new{enctype = "multipart/form-data", @class = "form-horizontal"}))
+	{
+		@Html.ValidationSummary(true, " ", new { @class = "text-danger" })		
+		
+		// El codigo es autoincremental
+		<div class="form-group">
+			@Html.LabelFor(m => m.Nombre, new { @class = "col-md-3 control-label" })			
+			<div class="col-md-7">
+				@Html.TextBoxFor(m => m.Nombre, null, new{@class = "form-control"})
+				@Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+			</div>
+		</div>		
+		<div class="form-group">
+			@Html.LabelFor(m => m.Descripcion, new{@class = "control-label col-md-3"})
+			<div class="col-md-7">
+				@Html.TextAreaFor(m => m.Descripcion, new{@class = "form-control"})
+				@Html.ValidationMessageFor(m => m.Descripcion, "", new { @class = "text-danger" })
+			</div>
+		</div>		
+		<div class="form-group">
+			@Html.LabelFor(m => m.IdCalificacion, new{@class = "control-label col-md-3"})
+			<div class="col-md-7">
+				@Html.DropDownListFor(m => m.IdCalificacion, new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })			
+				@Html.ValidationMessageFor(m => m.IdCalificacion, "", new { @class = "text-danger" })
+			</div>
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(m => m.IdGenero, new{@class = "control-label col-md-3"})
+			<div class="col-md-7">
+				@Html.DropDownListFor(m => m.IdGenero, new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
+				@Html.ValidationMessageFor(m => m.IdGenero, "", new { @class = "text-danger" })
+			</div>
+		</div>		
+		<div class="form-group">
+			@Html.LabelFor(m => m.Duracion, new{@class = "col-md-3 control-label" })
+			<div class="col-md-7">
+				@Html.TextBoxFor(m => m.Duracion, null, new{@class = "form-control"})
+				@Html.ValidationMessageFor(m => m.Duracion, "", new { @class = "text-danger" })
+			</div>
+		</div>
+		// La fecha de cargar se almacena a nivel de aplicación.
+		<div class="form-group">
+			@Html.TextBoxFor(m => m.Imagen, new{type = "file"})
+			@Html.ValidationMessageFor(m => m.Imagen, "", new { @class = "text-danger" })
+		</div>
+		<input type="submit" class="btn btn-lg btn-primary" value="Crear">
+	}
 </div>

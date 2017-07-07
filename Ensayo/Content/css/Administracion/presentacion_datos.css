@@ -1,0 +1,21 @@
+﻿.boton_crear {
+	margin-top: 25px;
+    width: 100px;
+}
+#buscador {
+    height: 50px;
+	margin-top: 25px;
+	width: 245px;
+}
+.btn_buscador {
+	float: right;
+}
+#mensaje_error
+{
+	margin: 120px auto;
+	text-align: center;
+}
+#btn_consultar_reservas
+{
+	margin: 0px;
+}

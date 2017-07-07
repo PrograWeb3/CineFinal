@@ -31,14 +31,30 @@ namespace Ensayo.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult NuevaPelicula(Peliculas nueva_pelicula, HttpPostedFileBase portada_pelicula)
+        public ActionResult NuevaPelicula(Peliculas nueva_pelicula, HttpPostedFileBase Imagen)
         {
+            try
+            {              
+                ServicioPeliculas.InsertarImagen(nueva_pelicula, Imagen);             
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", "No se ha seleccionado un portada para la película.");
+            }
             if (ModelState.IsValid)
             {
-                ServicioPeliculas.CrearPelicula(nueva_pelicula, portada_pelicula);
+                int DuracionPermitida = ServicioPeliculas.ValidarDuracionPelicula(nueva_pelicula);
+                if (DuracionPermitida > 0)
+                {
+                    ModelState.AddModelError("", "La duracion de la pelicula no puede superar los 90 minutos.");
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                ServicioPeliculas.CrearPelicula(nueva_pelicula);
                 return RedirectToAction("Peliculas");
             }            
-            return RedirectToAction("NuevaPelicula");
+            return RedirectToAction("NuevaPelicula", nueva_pelicula);
         }
         
         public ActionResult EditarPelicula(Int32 Id)
@@ -52,7 +68,14 @@ namespace Ensayo.Controllers
         [HttpPost]
         public ActionResult EditarPelicula(Peliculas pd, HttpPostedFileBase portada_pelicula)
         {
-            ServicioPeliculas.EditarPelicula(pd, portada_pelicula);
+            try
+            {
+                ServicioPeliculas.EditarPelicula(pd, portada_pelicula);
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", "No se ha seleccionado un portada para la película.");
+            }
             ViewBag.numero = pd.Nombre;
             ViewBag.duracion = pd.Duracion;
             return RedirectToAction("Peliculas");
@@ -78,6 +101,12 @@ namespace Ensayo.Controllers
         {
             Sedes sede = ServicioSedes.MostrarSedeSeleccionada(Id);
             return View(sede);
+        }
+        [HttpPost]
+        public ActionResult EditarSede(Sedes sede)
+        {
+            ServicioSedes.EditarSede(sede);
+            return RedirectToAction("Sedes");
         }
         /*Metodos controller para las carteleras*/
 
@@ -106,7 +135,8 @@ namespace Ensayo.Controllers
             //validar que no exista una cartelera con misma pelicula, sede y sala
             var CarteleraExistente = ServicioCarteleras.ValidarExistencia(cartelera);
             var FechaSolapada = ServicioCarteleras.ValidarSolapamientoFechas(cartelera);
-            var Intervalo30 = ServicioCarteleras.ValidarIntervalo30(cartelera);
+            var HoraInicioPermitida = ServicioCarteleras.ValidarHoraInicioPermitida(cartelera);
+            //var Intervalo30 = ServicioCarteleras.ValidarIntervalo30(cartelera);
 
             if (ModelState.IsValid)
             {
@@ -118,9 +148,9 @@ namespace Ensayo.Controllers
                 {
                     ModelState.AddModelError("", "La fecha indicada no esta disponible");
                 }
-                if (Intervalo30 > 0)
+                if (HoraInicioPermitida > 0)
                 {
-                    ModelState.AddModelError("", "Debe haber un intervalo de 30 minutos entre cada función");
+                    ModelState.AddModelError("", "La hora de inicio debe ser luego de las 15:00 hs.");
                 }
             }
             if (ModelState.IsValid)
@@ -190,6 +220,32 @@ namespace Ensayo.Controllers
             string objeto_json = JSON.Serialize(carteleras);
             return objeto_json;
         }*/
+		public ActionResult ReporteReservas()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CrearReporte(DateTime FechaI, DateTime FechaF)
+        {
+            List<Reservas> reservas = ServicioReservas.CrearReporte(FechaI, FechaF);
+            //Compruebo si el periodo consultado tiene mas de 30 días.
+            int cantidad_dias = (FechaF - FechaI).Days;
+            if(cantidad_dias > 30)
+            {
+                ViewBag.error = "El periodo de consulta no puede superar los 30 días";
+            }
+            //Verifico que la fecha de inicio no supere la de fin.
+            if (cantidad_dias < 0)
+            {
+                ViewBag.error = "La fecha de inicio no puede ser mayor a la fecha de fin.";
+            }
+            //Verifico que la fecha de inicio no supere la de fin.
+            if (reservas.Count == 0)
+            {
+                ViewBag.error = "No existe reservas realizadas en ese periodo.";
+            }
+            return View("ReporteReservas", reservas);
+        }
     }
 }
 

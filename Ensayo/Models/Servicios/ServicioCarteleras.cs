@@ -56,7 +56,7 @@ namespace Ensayo.Models.Servicios
             db.Carteleras.Remove(cartelera_eliminada.First());
             db.SaveChanges();
         }
-        
+        /*
         public static int ValidarIntervalo30(Carteleras cartelera)
         {
             CineContext db = new CineContext();            
@@ -82,7 +82,7 @@ namespace Ensayo.Models.Servicios
             }
             return conflicto_intervalo;
         }
-
+        */
         public static int ValidarExistencia(Carteleras cartelera)
         {
             CineContext db = new CineContext();
@@ -110,7 +110,15 @@ namespace Ensayo.Models.Servicios
             }
             return solapamiento;
         }
-        
+        public static int ValidarHoraInicioPermitida(Carteleras cartelera)
+        {
+            int HoraPermitida = 0;
+            if (cartelera.HoraInicio < 1500)
+            {
+                HoraPermitida = 1;
+            }
+            return HoraPermitida;
+        }
         public static Carteleras MostrarCarteleraSeleccionada(Int32 Id)
         {
             CineContext db = new CineContext();
@@ -139,10 +147,19 @@ namespace Ensayo.Models.Servicios
             return cartelera;
 
         }
+        //public List<Carteleras> listaCarteleras()
+        //{
+        //    List<Carteleras> cartelera = (from Carteleras in cine.Cartelerass
+        //                                  select cartelera).ToList();
+        //    return cartelera;
+        //}
 
-
-
-
+        //public List<Sedes> listaSede()
+        //{
+        //    List<Sedes> sedes = (from Sedes in cine.Sedess
+        //                         select Sedes).ToList();
+        //    return sedes;
+        //}
 
     }
 }

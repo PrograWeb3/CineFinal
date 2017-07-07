@@ -17,28 +17,38 @@
         padding: 30px 120px;
     }
 .contenedor_formulario label {
-    background-color: #1d1d1d;
-    color: #fff;
-    font-size: 12px;
+    background-color: #ccc;
+    color: #000;
+    font-family: Candara;
+    font-size: 14px;
     text-align: center !important;
 }
+
 .checkbox {
     background-color: #5dbeff !important;
+    width: 500px;
 
 }
 .checkbox > label {
     background-color: #5dbeff;
     color: #fff; 
+    
     font-size: 18px;
     text-align: left !important;
     margin-left: 50px;
 }
 #dias_proyeccion {
-    border: 2px ridge #ddd;
+    border: 0px ridge #ddd;
     background: #eee;
     padding: 25px;
+    width: 550px;
 }
 
 .checkbox > input[type=checkbox] {
     margin-left: 20px;
+}
+
+input[type=submit]
+{
+	margin-top: 20px;
 }

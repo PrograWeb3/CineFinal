@@ -209,6 +209,7 @@
     </Content>
     <Content Include="Content\css\Administracion\formularios.css" />
     <Content Include="Content\css\Administracion\nueva_pelicula.css" />
+    <Content Include="Content\css\Administracion\presentacion_datos.css" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap-3.3.6-dist\css\bootstrap.css" />
@@ -345,6 +346,7 @@
     <Content Include="Views\Index\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Peliculas\ReservaCompleta.cshtml" />
+    <Content Include="Views\Administracion\ReporteReservas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
