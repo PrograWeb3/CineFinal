@@ -17,15 +17,19 @@ namespace Ensayo.Models
         [Required]
         public string Nombre { get; set; }
 
+        [Display(Name = "Descripción")]
+
         [Required]
         public string Descripcion { get; set; }
 
         [Required]
         public string Imagen { get; set; }
 
+        [Display(Name = "calificación")]
         [Required]
         public int IdCalificacion { get; set; }
 
+        [Display(Name = "Género")]
         [Required]        
         public int IdGenero { get; set; }
 

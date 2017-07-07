@@ -53,8 +53,10 @@ namespace Ensayo.Controllers
             {
                 ServicioPeliculas.CrearPelicula(nueva_pelicula);
                 return RedirectToAction("Peliculas");
-            }            
-            return RedirectToAction("NuevaPelicula", nueva_pelicula);
+            }
+            ViewBag.Clasificaciones = ServicioPeliculas.ObtenerClasificaciones();
+            ViewBag.Generos = ServicioPeliculas.ObtenerGeneros();
+            return View(nueva_pelicula);
         }
         
         public ActionResult EditarPelicula(Int32 Id)

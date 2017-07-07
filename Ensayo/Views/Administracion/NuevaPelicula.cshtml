@@ -31,14 +31,14 @@
 		<div class="form-group">
 			@Html.LabelFor(m => m.IdCalificacion, new{@class = "control-label col-md-3"})
 			<div class="col-md-7">
-				@Html.DropDownListFor(m => m.IdCalificacion, new SelectList(ViewBag.Clasificaciones, "Value", "Text"), new { @class = "form-control" })			
+				@Html.DropDownListFor(m => m.IdCalificacion, new SelectList(ViewBag.Clasificaciones, "Value", "Text"),"Seleccione calificación", new { @class = "form-control" })			
 				@Html.ValidationMessageFor(m => m.IdCalificacion, "", new { @class = "text-danger" })
 			</div>
 		</div>
 		<div class="form-group">
 			@Html.LabelFor(m => m.IdGenero, new{@class = "control-label col-md-3"})
 			<div class="col-md-7">
-				@Html.DropDownListFor(m => m.IdGenero, new SelectList(ViewBag.Generos, "Value", "Text"), new { @class = "form-control" })
+				@Html.DropDownListFor(m => m.IdGenero, new SelectList(ViewBag.Generos, "Value", "Text"),"Seleccione Género", new { @class = "form-control" })
 				@Html.ValidationMessageFor(m => m.IdGenero, "", new { @class = "text-danger" })
 			</div>
 		</div>		
